@@ -9,7 +9,7 @@ class MapGenerator : GeneratorImpl
         for (int i=0; i < mapValues.sectorNumber; i++)
         {
             Vector3 left = basePoint + mapValues.right.normalized * mapValues.sectorSize * i;
-            Vector3 right = basePoint + mapValues.right.normalized * mapValues.sectorSize * (i + 0.9f);
+            Vector3 right = basePoint + mapValues.right.normalized * mapValues.sectorSize * (i + 1f);
             meshElements.Add(new SectorMesh(left, right, mapValues.forward, mapValues.R));
         }
     }

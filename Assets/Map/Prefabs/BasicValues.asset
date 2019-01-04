@@ -17,3 +17,6 @@ MonoBehaviour:
   forward: {x: 0, y: 0, z: 10}
   sectorSize: 2
   sectorNumber: 3
+  R: 200
+  startAngle: 30
+  speed: 5
