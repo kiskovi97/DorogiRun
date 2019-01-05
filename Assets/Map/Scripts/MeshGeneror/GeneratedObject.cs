@@ -39,11 +39,11 @@ public class GeneratedObject : MonoBehaviour
         Vector3 to = transform.position;
         if (triangle.uvs.Length < 3) return;
         subTriangles[triangle.material].Add(meshVertexes.Count);
-        meshVertexes.Add(matrix * (triangle.A - to));
+        meshVertexes.Add(matrix * (triangle.A));
         subTriangles[triangle.material].Add(meshVertexes.Count);
-        meshVertexes.Add(matrix * (triangle.B - to));
+        meshVertexes.Add(matrix * (triangle.B));
         subTriangles[triangle.material].Add(meshVertexes.Count);
-        meshVertexes.Add(matrix * (triangle.C - to));
+        meshVertexes.Add(matrix * (triangle.C));
         myUV.Add(triangle.uvs[0]);
         myUV.Add(triangle.uvs[1]);
         myUV.Add(triangle.uvs[2]);

@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class MapMesh : GeneratedObject
+﻿public class MapMesh : GeneratedObject
 {
 
     public MapValues mapValues;

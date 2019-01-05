@@ -1,24 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(MapMesh))]
 public class MapObjectGenerator : MonoBehaviour
 {
-    public MapValues mapValues;
-    public Obstacles generated;
+    private MapValues mapValues;
+    public Obstacles[] generated;
+    public float speed = 5.0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        MapMesh mesh = GetComponent<MapMesh>();
+        mapValues = mesh.mapValues;
         InvokeRepeating("NewObject", 0.5f, 0.5f);
     }
 
     void NewObject()
     {
-        Debug.Log("New Object Created");
         int sector = mapValues.RandomSector();
-        Obstacles obj = Instantiate(generated, new Vector3(0,100, 0), new Quaternion());
-        obj.setValues(mapValues, sector);
+        int selected = (int)(generated.Length * Random.value);
+        Obstacles obj = Instantiate(generated[selected], new Vector3(0, 100, 0), new Quaternion());
+        obj.SetValues(mapValues, sector, speed);
+        obj.transform.parent = gameObject.transform;
         obj.Update();
     }
 }

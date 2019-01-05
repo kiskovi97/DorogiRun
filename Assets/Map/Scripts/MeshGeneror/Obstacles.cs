@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Obstacles : MonoBehaviour
 {
@@ -8,19 +7,23 @@ public class Obstacles : MonoBehaviour
 
     int sector;
 
-    float angle = 180;
+    float angle = 180f;
 
-    public void setValues(MapValues mapValues, int sector)
+    float speed = 0f;
+
+    public void SetValues(MapValues mapValues, int sector, float speed)
     {
         this.mapValues = mapValues;
-        angle = mapValues.startAngle;
+        angle = mapValues.curve.startAngle;
         this.sector = sector;
+        this.speed = speed;
     }
 
     public void Update()
     {
-        angle -= Time.deltaTime * mapValues.speed;
+        angle -= Time.deltaTime * speed;
         if (angle < 0) Destroy(this.gameObject, 0.01f);
-        transform.position = mapValues.GetPosition(sector, angle);
+        transform.localPosition = mapValues.GetPosition(sector, angle);
+        transform.rotation = Quaternion.AngleAxis(angle, mapValues.right);
     }
 }
