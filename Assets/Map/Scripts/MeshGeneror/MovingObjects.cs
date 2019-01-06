@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Obstacles : MonoBehaviour
+public class MovingObjects : MonoBehaviour
 {
 
     MapValues mapValues;
