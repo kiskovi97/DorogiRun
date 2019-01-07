@@ -15,6 +15,15 @@ public class MapValues : ScriptableObject
         return selected;
     }
 
+    public int[] SideSector()
+    {
+        return new int[]
+        {
+            -1,
+            sectorNumber
+        };
+    }
+
     public Vector3 Sector(int selected)
     {
         Vector3 farLeft = basePoint - right.normalized * sectorSize * (sectorNumber / 2f);

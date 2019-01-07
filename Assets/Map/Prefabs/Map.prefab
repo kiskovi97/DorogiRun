@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab93296be722034c88cfeb85edff554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anglePerVertex: 2
   mapValues: {fileID: 11400000, guid: 2db9bb46a22f44d4691af8102d9aee2c, type: 2}
 --- !u!114 &5657379282956893548
 MonoBehaviour:
@@ -107,4 +108,10 @@ MonoBehaviour:
   generated:
   - {fileID: 6929581213088663976, guid: 14776431b8616a740b2748d7c1a6c51d, type: 3}
   - {fileID: 6929581213088663976, guid: 9cdd5356f14190d45943bd0070766d39, type: 3}
-  speed: 5
+  - {fileID: 6929581213088663976, guid: 3d09ec74005090346977134a39c043a8, type: 3}
+  sideObjects:
+  - {fileID: 2014267149561799709, guid: d5bafab398872db4a8f0c724fa50864d, type: 3}
+  - {fileID: 2014267149561799709, guid: d37035b96d346ca4a95322382c2489c5, type: 3}
+  - {fileID: 2014267149561799709, guid: ce8caeefaa684464b9fbdb394b9e5fbb, type: 3}
+  speed: 3
+  objectGeneratingFrequency: 1

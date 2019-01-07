@@ -17,6 +17,6 @@ MonoBehaviour:
   curve:
     forward: {x: 0, y: 0, z: 10}
     R: 200
-    startAngle: 15
+    startAngle: 20
   sectorSize: 2
   sectorNumber: 3
