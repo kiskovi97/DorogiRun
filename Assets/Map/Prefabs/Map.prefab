@@ -113,6 +113,8 @@ MonoBehaviour:
   - {fileID: 6929581213088663976, guid: b6468fefb8bfe564786ba0576b1c564d, type: 3}
   sideObjects:
   - {fileID: 2014267149561799709, guid: d5bafab398872db4a8f0c724fa50864d, type: 3}
+  - {fileID: 2014267149561799709, guid: d5bafab398872db4a8f0c724fa50864d, type: 3}
+  - {fileID: 2014267149561799709, guid: ac579709b9590724b8d3b44f60c39043, type: 3}
   speed: 10
   sideObjectFrequency: 4.2
   objectGeneratingFrequency: 20
