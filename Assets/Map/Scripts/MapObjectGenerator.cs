@@ -4,24 +4,78 @@
 public class MapObjectGenerator : MonoBehaviour
 {
     private MapValues mapValues;
-    public Obstacles[] generated;
+    public Enviroment enviroment;
     public float speed = 5.0f;
+    public float sideObjectFrequency = 2.0f;
+    public float objectGeneratingFrequency = 1.0f;
+    private MapMesh mesh;
 
     // Start is called before the first frame update
     void Start()
     {
-        MapMesh mesh = GetComponent<MapMesh>();
+        mesh = GetComponent<MapMesh>();
         mapValues = mesh.mapValues;
-        InvokeRepeating("NewObject", 0.5f, 0.5f);
+        InvokeRepeating("NewObject", objectGeneratingFrequency / speed, objectGeneratingFrequency / speed);
+        InvokeRepeating("MakeSideObjects", sideObjectFrequency / speed, sideObjectFrequency / speed);
+        MakeAllSideObjects();
+    }
+
+    private void Update()
+    {
+        mesh.UpdateAngle(Time.deltaTime * speed);
     }
 
     void NewObject()
     {
         int sector = mapValues.RandomSector();
-        int selected = (int)(generated.Length * Random.value);
-        Obstacles obj = Instantiate(generated[selected], new Vector3(0, 100, 0), new Quaternion());
+        NewObstacle(sector);
+    }
+
+    void NewObstacle(int sector)
+    {
+        MovingObject obj = enviroment.GetObstacle();
         obj.SetValues(mapValues, sector, speed);
         obj.transform.parent = gameObject.transform;
         obj.Update();
+    }
+
+    void MakeSideObjects()
+    {
+        int[] tomb = mapValues.SideSector();
+        foreach (int value in tomb)
+        {
+            MovingObject obj = enviroment.GetSideObject();
+            obj.SetValues(mapValues, value, speed);
+            obj.transform.parent = gameObject.transform;
+            if (value > 0)
+            {
+                Vector3 scale = obj.transform.localScale;
+                scale.x *= -1;
+                obj.transform.localScale = scale;
+            }
+            obj.Update();
+        }
+    }
+
+    private void MakeAllSideObjects()
+    {
+        int[] tomb = mapValues.SideSector();
+        foreach (int value in tomb)
+        {
+            for (float distance = mapValues.StartDistance; distance > mapValues.EndDistance; distance-= sideObjectFrequency)
+            {
+                MovingObject obj = enviroment.GetSideObject();
+                obj.SetValues(mapValues, value, speed);
+                obj.transform.parent = gameObject.transform;
+                if (value > 0)
+                {
+                    Vector3 scale = obj.transform.localScale;
+                    scale.x *= -1;
+                    obj.transform.localScale = scale;
+                }
+                obj.SetDistance(distance);
+                obj.Update();
+            }
+        }
     }
 }
