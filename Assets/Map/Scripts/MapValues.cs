@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 [CreateAssetMenu]
 public class MapValues : ScriptableObject
 {
-    public Vector3 basePoint = new Vector3(0, 0, 0);
+    private Vector3 basePoint = new Vector3(0, 0, 0);
     public Vector3 right = new Vector3(1, 0, 0);
     public Curve curve;
     public float sectorSize = 2.0f;
@@ -30,14 +29,29 @@ public class MapValues : ScriptableObject
         return farLeft + right.normalized * sectorSize * (selected + 0.5f);
     }
 
-    public Vector3 ForwardAngle(float angle)
+    private Vector3 Forward(float distance)
     {
-        return curve.GetCurvePoint(angle);
+        return curve.GetPointByDistance(distance);
     }
 
-    public Vector3 GetPosition(int sector, float angle)
+    public Vector3 GetPosition(int sector, float distance)
     {
-        return Sector(sector) + ForwardAngle(angle);
+        return Sector(sector) + Forward(distance);
+    }
+
+    public Quaternion GetRotation(float distance)
+    {
+        return Quaternion.AngleAxis(curve.DistanceToAngle(distance), right);
+    }
+
+    public float StartDistance
+    {
+        get { return curve.StartDistance; }
+    }
+
+    public float EndDistance
+    {
+        get { return curve.EndDistance; }
     }
 
 }

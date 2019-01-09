@@ -323,6 +323,21 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1990651057}
+    - target: {fileID: 2238100409625941346, guid: 95ab5fbbda32257479e769c052e05cc2,
+        type: 3}
+      propertyPath: resolution
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657379282956893548, guid: 95ab5fbbda32257479e769c052e05cc2,
+        type: 3}
+      propertyPath: objectGeneratingFrequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657379282956893548, guid: 95ab5fbbda32257479e769c052e05cc2,
+        type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ab5fbbda32257479e769c052e05cc2, type: 3}
 --- !u!43 &1990651057
