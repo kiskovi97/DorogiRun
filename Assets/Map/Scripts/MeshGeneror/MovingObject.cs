@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MovingObjects : MonoBehaviour
+public class MovingObject : MonoBehaviour
 {
 
     MapValues mapValues;
@@ -9,14 +9,17 @@ public class MovingObjects : MonoBehaviour
 
     float distance = 180f;
 
+    private float minDistance = 0f;
+
     float speed = 0f;
 
     public void SetValues(MapValues mapValues, int sector, float speed)
     {
         this.mapValues = mapValues;
-        distance = mapValues.curve.StartDistance;
+        distance = mapValues.StartDistance;
         this.sector = sector;
         this.speed = speed;
+        minDistance = mapValues.EndDistance;
     }
 
     public void SetDistance(float distance)
@@ -27,8 +30,8 @@ public class MovingObjects : MonoBehaviour
     public void Update()
     {
         distance -= Time.deltaTime * speed;
-        if (distance < mapValues.curve.EndDistance) Destroy(this.gameObject, 0.01f);
+        if (distance < minDistance) Destroy(this.gameObject, 0.01f);
         transform.localPosition = mapValues.GetPosition(sector, distance);
-        transform.rotation = Quaternion.AngleAxis(mapValues.curve.DistanceToAngle(distance), mapValues.right);
+        transform.rotation = mapValues.GetRotation(distance);
     }
 }

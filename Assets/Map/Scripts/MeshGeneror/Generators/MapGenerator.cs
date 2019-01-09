@@ -4,7 +4,7 @@ class MapGenerator : GeneratorImpl
 {
     public MapGenerator(MapValues mapValues, float distance, float resolution)
     {
-        Vector3 farLeft = mapValues.basePoint - mapValues.right.normalized * mapValues.sectorSize * (mapValues.sectorNumber / 2.0f);
+        Vector3 farLeft = - mapValues.right.normalized * mapValues.sectorSize * (mapValues.sectorNumber / 2.0f);
         for (int i=0; i < mapValues.sectorNumber; i++)
         {
             Vector3 currentLeft = farLeft + mapValues.right.normalized * mapValues.sectorSize * i;

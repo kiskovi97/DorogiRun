@@ -4,8 +4,7 @@
 public class MapObjectGenerator : MonoBehaviour
 {
     private MapValues mapValues;
-    public MovingObjects[] generated;
-    public MovingObjects[] sideObjects;
+    public Enviroment enviroment;
     public float speed = 5.0f;
     public float sideObjectFrequency = 2.0f;
     public float objectGeneratingFrequency = 1.0f;
@@ -34,9 +33,7 @@ public class MapObjectGenerator : MonoBehaviour
 
     void NewObstacle(int sector)
     {
-        if (generated == null) return;
-        int selected = (int)(generated.Length * Random.value);
-        MovingObjects obj = Instantiate(generated[selected], new Vector3(0, 100, 0), new Quaternion());
+        MovingObject obj = enviroment.GetObstacle();
         obj.SetValues(mapValues, sector, speed);
         obj.transform.parent = gameObject.transform;
         obj.Update();
@@ -44,12 +41,10 @@ public class MapObjectGenerator : MonoBehaviour
 
     void MakeSideObjects()
     {
-        if (sideObjects == null) return;
         int[] tomb = mapValues.SideSector();
         foreach (int value in tomb)
         {
-            int selected = (int)(sideObjects.Length * Random.value);
-            MovingObjects obj = Instantiate(sideObjects[selected], new Vector3(0, 100, 0), new Quaternion());
+            MovingObject obj = enviroment.GetSideObject();
             obj.SetValues(mapValues, value, speed);
             obj.transform.parent = gameObject.transform;
             if (value > 0)
@@ -64,14 +59,12 @@ public class MapObjectGenerator : MonoBehaviour
 
     private void MakeAllSideObjects()
     {
-        if (sideObjects == null) return;
         int[] tomb = mapValues.SideSector();
         foreach (int value in tomb)
         {
-            for (float distance = mapValues.curve.StartDistance; distance > mapValues.curve.EndDistance; distance-= sideObjectFrequency)
+            for (float distance = mapValues.StartDistance; distance > mapValues.EndDistance; distance-= sideObjectFrequency)
             {
-                int selected = (int)(sideObjects.Length * Random.value);
-                MovingObjects obj = Instantiate(sideObjects[selected], new Vector3(0, 100, 0), new Quaternion());
+                MovingObject obj = enviroment.GetSideObject();
                 obj.SetValues(mapValues, value, speed);
                 obj.transform.parent = gameObject.transform;
                 if (value > 0)

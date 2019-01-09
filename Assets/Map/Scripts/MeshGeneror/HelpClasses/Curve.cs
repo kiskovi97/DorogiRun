@@ -3,29 +3,15 @@
 [System.Serializable]
 public class Curve : System.Object
 {
-    public Vector3 forward = new Vector3(0, 0, 10);
-    public float R = 10.0f;
-    [SerializeField]
-    private float startAngle = 30;
-    [SerializeField]
-    private float endAngle = -10;
-    public float StartDistance
-    {
-        get
-        {
-            return AngleToDistance(startAngle);
-        }
-    }
+    public Vector3 forward = new Vector3(0, 0, 1);
 
-    public float EndDistance
-    {
-        get
-        {
-            return AngleToDistance(endAngle);
-        }
-    }
+    public float R = 10.0f;
+
+    public float StartDistance = 30f;
+
+    public float EndDistance = -10f;
     
-    private Vector3 GetCurvePoint(float angle)
+    private Vector3 GetPoint(float angle)
     {
         Vector3 up = new Vector3(0, 1, 0);
         float radiant = angle / 180 * Mathf.PI;
@@ -47,7 +33,7 @@ public class Curve : System.Object
     public Vector3 GetPointByDistance(float distance)
     {
         float angle = DistanceToAngle(distance);
-        return GetCurvePoint(angle);
+        return GetPoint(angle);
     }
 
 }
