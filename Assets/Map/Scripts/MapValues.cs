@@ -30,14 +30,14 @@ public class MapValues : ScriptableObject
         return farLeft + right.normalized * sectorSize * (selected + 0.5f);
     }
 
-    public Vector3 ForwardAngle(float angle)
+    private Vector3 Forward(float distance)
     {
-        return curve.GetCurvePoint(angle);
+        return curve.GetPointByDistance(distance);
     }
 
-    public Vector3 GetPosition(int sector, float angle)
+    public Vector3 GetPosition(int sector, float distance)
     {
-        return Sector(sector) + ForwardAngle(angle);
+        return Sector(sector) + Forward(distance);
     }
 
 }

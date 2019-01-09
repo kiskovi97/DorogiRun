@@ -2,13 +2,13 @@
 
 class SectorMesh : MeshElementImpl
 {
-    public SectorMesh(Vector3 right, Vector3 left, Curve curve, float angle, float resolution)
+    public SectorMesh(Vector3 right, Vector3 left, Curve curve, float distance, float resolution)
     {
-        Vector3 prevRight = right + curve.GetCurvePoint(angle- resolution); 
-        Vector3 prevLeft = left + curve.GetCurvePoint(angle- resolution);
-        for (float i = angle; i < curve.startAngle; i+= resolution)
+        Vector3 prevRight = right + curve.GetPointByDistance(distance - resolution); 
+        Vector3 prevLeft = left + curve.GetPointByDistance(distance - resolution);
+        for (float i = distance; i < curve.StartDistance; i+= resolution)
         {
-            Vector3 curvePoint = curve.GetCurvePoint(i);
+            Vector3 curvePoint = curve.GetPointByDistance(i);
             shapes.Add(new RectangleShape(prevLeft, prevRight, left + curvePoint, right + curvePoint, 0));
             prevLeft = left + curvePoint;
             prevRight = right + curvePoint;

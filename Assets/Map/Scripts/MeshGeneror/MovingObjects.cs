@@ -7,23 +7,28 @@ public class MovingObjects : MonoBehaviour
 
     int sector;
 
-    float angle = 180f;
+    float distance = 180f;
 
     float speed = 0f;
 
     public void SetValues(MapValues mapValues, int sector, float speed)
     {
         this.mapValues = mapValues;
-        angle = mapValues.curve.startAngle;
+        distance = mapValues.curve.StartDistance;
         this.sector = sector;
         this.speed = speed;
     }
 
+    public void SetDistance(float distance)
+    {
+        this.distance = distance;
+    }
+
     public void Update()
     {
-        angle -= Time.deltaTime * speed;
-        if (angle < 0) Destroy(this.gameObject, 0.01f);
-        transform.localPosition = mapValues.GetPosition(sector, angle);
-        transform.rotation = Quaternion.AngleAxis(angle, mapValues.right);
+        distance -= Time.deltaTime * speed;
+        if (distance < mapValues.curve.EndDistance) Destroy(this.gameObject, 0.01f);
+        transform.localPosition = mapValues.GetPosition(sector, distance);
+        transform.rotation = Quaternion.AngleAxis(mapValues.curve.DistanceToAngle(distance), mapValues.right);
     }
 }

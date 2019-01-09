@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859364382349064}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &23915820628954710
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab93296be722034c88cfeb85edff554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anglePerVertex: 2
+  resolution: 4
   mapValues: {fileID: 11400000, guid: 2db9bb46a22f44d4691af8102d9aee2c, type: 2}
 --- !u!114 &5657379282956893548
 MonoBehaviour:
@@ -113,7 +113,6 @@ MonoBehaviour:
   - {fileID: 6929581213088663976, guid: b6468fefb8bfe564786ba0576b1c564d, type: 3}
   sideObjects:
   - {fileID: 2014267149561799709, guid: d5bafab398872db4a8f0c724fa50864d, type: 3}
-  - {fileID: 2014267149561799709, guid: d37035b96d346ca4a95322382c2489c5, type: 3}
-  - {fileID: 2014267149561799709, guid: ce8caeefaa684464b9fbdb394b9e5fbb, type: 3}
-  speed: 3
-  objectGeneratingFrequency: 1
+  speed: 10
+  sideObjectFrequency: 4.2
+  objectGeneratingFrequency: 20
