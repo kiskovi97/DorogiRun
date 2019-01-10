@@ -20,5 +20,5 @@ MonoBehaviour:
   - {fileID: 6929581213088663976, guid: bea847989fe305447a335a45666ca4dd, type: 3}
   sideObjects:
   - {fileID: 2014267149561799709, guid: d5bafab398872db4a8f0c724fa50864d, type: 3}
-  - {fileID: 2014267149561799709, guid: fa093875642417542b9a54c1f1765110, type: 3}
-  - {fileID: 2014267149561799709, guid: ac579709b9590724b8d3b44f60c39043, type: 3}
+  - {fileID: 2014267149561799709, guid: d7504139d9eee5c4caa2cf9de47e57ba, type: 3}
+  - {fileID: 2014267149561799709, guid: 4399205fcb8fb5d4bbaf536f0a04cf28, type: 3}
