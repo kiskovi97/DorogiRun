@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8372464229653503367}
   - component: {fileID: 6929581213088663976}
   - component: {fileID: 3261829365720139806}
+  - component: {fileID: 352306680801054541}
   m_Layer: 0
   m_Name: Car01
   m_TagString: Untagged
@@ -58,6 +59,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2789006, y: 1.2685432, z: 3.036932}
   m_Center: {x: 0.0016653538, y: 0.5354121, z: 0.12631893}
+--- !u!54 &352306680801054541
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7248893741344730978}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7669784411843144366
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,10 +163,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8372464229653503367}
     m_Modifications:
-    - target: {fileID: 100000, guid: f9f2cedc3d39d9f40be086924f74caec, type: 3}
-      propertyPath: m_Name
-      value: cars
-      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: f9f2cedc3d39d9f40be086924f74caec, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c704052f6db5fb4381961d442aad5d8, type: 2}
     - target: {fileID: 400000, guid: f9f2cedc3d39d9f40be086924f74caec, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -194,9 +211,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 89.998
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: f9f2cedc3d39d9f40be086924f74caec, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5c704052f6db5fb4381961d442aad5d8, type: 2}
+    - target: {fileID: 100000, guid: f9f2cedc3d39d9f40be086924f74caec, type: 3}
+      propertyPath: m_Name
+      value: cars
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f2cedc3d39d9f40be086924f74caec, type: 3}
