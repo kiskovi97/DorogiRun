@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7bc8f067bbf55488fe8994193e1a48, type: 3}
   m_Name: BasicValues
   m_EditorClassIdentifier: 
-  basePoint: {x: 0, y: 0, z: 0}
   right: {x: 1, y: 0, z: 0}
   curve:
     forward: {x: 0, y: 0, z: 10}
     R: 500
-    startAngle: 10
-    endAngle: -3
+    StartDistance: 100
+    EndDistance: -10
   sectorSize: 2
   sectorNumber: 3
