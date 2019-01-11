@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61525d57215f6cf46a4504b5a5571ff7, type: 3}
-  m_Name: City
+  m_Name: TestCity
   m_EditorClassIdentifier: 
   obstacles:
+  - {fileID: 6929581213088663976, guid: 14776431b8616a740b2748d7c1a6c51d, type: 3}
   - {fileID: 6929581213088663976, guid: bea847989fe305447a335a45666ca4dd, type: 3}
-  - {fileID: 6929581213088663976, guid: b6468fefb8bfe564786ba0576b1c564d, type: 3}
   - {fileID: 6929581213088663976, guid: 3d09ec74005090346977134a39c043a8, type: 3}
   - {fileID: 6929581213088663976, guid: 9cdd5356f14190d45943bd0070766d39, type: 3}
-  - {fileID: 6929581213088663976, guid: 14776431b8616a740b2748d7c1a6c51d, type: 3}
+  - {fileID: 6929581213088663976, guid: b6468fefb8bfe564786ba0576b1c564d, type: 3}
   sideObjects:
   - {fileID: 2014267149561799709, guid: d5bafab398872db4a8f0c724fa50864d, type: 3}
   - {fileID: 2014267149561799709, guid: fa093875642417542b9a54c1f1765110, type: 3}
-  - {fileID: 2014267149561799709, guid: ac579709b9590724b8d3b44f60c39043, type: 3}
+  - {fileID: 2014267149561799709, guid: fa093875642417542b9a54c1f1765110, type: 3}

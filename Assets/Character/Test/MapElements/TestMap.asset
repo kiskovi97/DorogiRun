@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7bc8f067bbf55488fe8994193e1a48, type: 3}
   m_Name: TestMap
   m_EditorClassIdentifier: 
-  basePoint: {x: 0, y: 0, z: 0}
   right: {x: 1, y: 0, z: 0}
   curve:
     forward: {x: 0, y: 0, z: 10}
     R: 200
-    startAngle: 15
+    StartDistance: 30
+    EndDistance: -10
   sectorSize: 2
   sectorNumber: 3
