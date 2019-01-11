@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61525d57215f6cf46a4504b5a5571ff7, type: 3}
+  m_Name: TestCity
+  m_EditorClassIdentifier: 
+  obstacles:
+  - {fileID: 6929581213088663976, guid: 14776431b8616a740b2748d7c1a6c51d, type: 3}
+  - {fileID: 6929581213088663976, guid: bea847989fe305447a335a45666ca4dd, type: 3}
+  - {fileID: 6929581213088663976, guid: 3d09ec74005090346977134a39c043a8, type: 3}
+  - {fileID: 6929581213088663976, guid: 9cdd5356f14190d45943bd0070766d39, type: 3}
+  - {fileID: 6929581213088663976, guid: b6468fefb8bfe564786ba0576b1c564d, type: 3}
+  sideObjects:
+  - {fileID: 2014267149561799709, guid: d5bafab398872db4a8f0c724fa50864d, type: 3}
+  - {fileID: 2014267149561799709, guid: fa093875642417542b9a54c1f1765110, type: 3}
+  - {fileID: 2014267149561799709, guid: fa093875642417542b9a54c1f1765110, type: 3}
