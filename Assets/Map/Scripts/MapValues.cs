@@ -6,7 +6,7 @@ public class MapValues : ScriptableObject
     private Vector3 basePoint = new Vector3(0, 0, 0);
     public Vector3 right = new Vector3(1, 0, 0);
     public Curve curve;
-    public float sectorSize = 2.0f;
+    public float sectorSize = 2f;
     public int sectorNumber = 3;
     public int RandomSector()
     {

@@ -13,5 +13,15 @@ class SectorMesh : MeshElementImpl
             prevLeft = left + curvePoint;
             prevRight = right + curvePoint;
         }
+
+        prevRight = right + curve.GetPointByDistance(distance);
+        prevLeft = left + curve.GetPointByDistance(distance);
+        for (float i = distance; i > curve.EndDistance; i -= resolution)
+        {
+            Vector3 curvePoint = curve.GetPointByDistance(i);
+            shapes.Add(new RectangleShape(prevRight, prevLeft, right + curvePoint, left + curvePoint,  0));
+            prevLeft = left + curvePoint;
+            prevRight = right + curvePoint;
+        }
     }
 }
