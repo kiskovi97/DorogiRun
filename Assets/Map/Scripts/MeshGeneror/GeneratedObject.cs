@@ -17,9 +17,11 @@ public class GeneratedObject : MonoBehaviour
             subTriangles.Add(new List<int>());
         }
         GetMesh();
+        mesh.name = "Road";
     }
     private void GetMesh()
     {
+
 #if UNITY_EDITOR
         MeshFilter mf = GetComponent<MeshFilter>();   //a better way of getting the meshfilter using Generics
         Mesh meshCopy = Instantiate(mf.sharedMesh) as Mesh;  //make a deep copy

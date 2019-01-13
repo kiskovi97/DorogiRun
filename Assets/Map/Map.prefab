@@ -105,17 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b43fcdb2c7eec49a3cdf4560956f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generated:
-  - {fileID: 6929581213088663976, guid: 14776431b8616a740b2748d7c1a6c51d, type: 3}
-  - {fileID: 6929581213088663976, guid: 9cdd5356f14190d45943bd0070766d39, type: 3}
-  - {fileID: 6929581213088663976, guid: 3d09ec74005090346977134a39c043a8, type: 3}
-  - {fileID: 6929581213088663976, guid: bea847989fe305447a335a45666ca4dd, type: 3}
-  - {fileID: 6929581213088663976, guid: b6468fefb8bfe564786ba0576b1c564d, type: 3}
-  sideObjects:
-  - {fileID: 2014267149561799709, guid: d5bafab398872db4a8f0c724fa50864d, type: 3}
-  - {fileID: 2014267149561799709, guid: d5bafab398872db4a8f0c724fa50864d, type: 3}
-  - {fileID: 2014267149561799709, guid: ac579709b9590724b8d3b44f60c39043, type: 3}
   enviroment: {fileID: 11400000, guid: b9ea646a48d26ba42b3d17dadc80c30e, type: 2}
+  ruleSet: {fileID: 581989875868927097, guid: 4e26b8feb5407ef49bf3d70a17f64a04, type: 3}
+  sideRuleSet: {fileID: 5889012517237969276, guid: eed118a2bd1fb194687d809890f7cdbb,
+    type: 3}
   speed: 10
   sideObjectFrequency: 4.2
   objectGeneratingFrequency: 20
