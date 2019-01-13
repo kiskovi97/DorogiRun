@@ -9,7 +9,7 @@ public class RuleSets : ScriptableObject
 
     private int prev = 0;
 
-    public RuleSet ruleSet
+    public RuleSet NextRule
     {
         get
         {

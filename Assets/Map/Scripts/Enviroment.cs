@@ -39,4 +39,23 @@ public class Enviroment : ScriptableObject
         }
         return null;
     }
+
+    public MovingObject GetMaxLengthObstacle(float max)
+    {
+        if (sideObjects == null) throw new System.Exception("Enviroment Not Valid: Missing obstacles");
+        List<MovingObject> list = new List<MovingObject>();
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            if (obstacles[i].length < max)
+            {
+                list.Add(obstacles[i]);
+            }
+        }
+        if (list.Count > 0)
+        {
+            int selected = (int)(Random.value * list.Count);
+            return Instantiate(list[selected], new Vector3(0, 100, 0), new Quaternion());
+        }
+        return null;
+    }
 }

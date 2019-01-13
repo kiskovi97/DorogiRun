@@ -5,12 +5,11 @@ public class MapObjectGenerator : MonoBehaviour
 {
     private MapValues mapValues;
     public Enviroment enviroment;
-    public RuleSets ruleSets;
+    public RuleSets obstacleRules;
     public SideRuleSet sideRuleSet;
     private MapMesh mesh;
     public float speed = 5.0f;
     public float sideObjectFrequency = 2.0f;
-    public float objectGeneratingFrequency = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +19,7 @@ public class MapObjectGenerator : MonoBehaviour
         NewRule();
         sideRuleSet.Set(mapValues, enviroment, transform);
         sideRuleSet.MakeAll(speed);
-        Invoke("MakeSideObjects", sideObjectFrequency / speed);
+        MakeSideObjects();
     }
 
     private void Update()
@@ -30,7 +29,7 @@ public class MapObjectGenerator : MonoBehaviour
 
     void NewRule()
     {
-        RuleSet ruleSet = ruleSets.ruleSet;
+        RuleSet ruleSet = obstacleRules.NextRule;
         float length = ruleSet.length;
         ruleSet.Set(mapValues, enviroment, transform);
         ruleSet.Make(speed);
