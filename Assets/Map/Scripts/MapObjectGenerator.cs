@@ -5,7 +5,7 @@ public class MapObjectGenerator : MonoBehaviour
 {
     private MapValues mapValues;
     public Enviroment enviroment;
-    public RuleSet ruleSet;
+    public RuleSets ruleSets;
     public SideRuleSet sideRuleSet;
     private MapMesh mesh;
     public float speed = 5.0f;
@@ -30,6 +30,7 @@ public class MapObjectGenerator : MonoBehaviour
 
     void NewRule()
     {
+        RuleSet ruleSet = ruleSets.ruleSet;
         float length = ruleSet.length;
         ruleSet.Set(mapValues, enviroment, transform);
         ruleSet.Make(speed);

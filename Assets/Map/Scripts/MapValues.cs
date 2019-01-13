@@ -8,10 +8,19 @@ public class MapValues : ScriptableObject
     public Curve curve;
     public float sectorSize = 2f;
     public int sectorNumber = 3;
+
     public int RandomSector()
     {
         int selected = (int)(Random.value * (float)sectorNumber);
         return selected;
+    }
+
+    public int SectorNumber
+    {
+        get
+        {
+            return sectorNumber;
+        }
     }
 
     public int[] SideSector()

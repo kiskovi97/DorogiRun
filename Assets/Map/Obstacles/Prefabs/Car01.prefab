@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465143c2d9e960047a75a9870b342c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  length: 3
 --- !u!65 &3261829365720139806
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -163,10 +164,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8372464229653503367}
     m_Modifications:
-    - target: {fileID: 2300000, guid: f9f2cedc3d39d9f40be086924f74caec, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5c704052f6db5fb4381961d442aad5d8, type: 2}
     - target: {fileID: 400000, guid: f9f2cedc3d39d9f40be086924f74caec, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -215,5 +212,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: cars
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: f9f2cedc3d39d9f40be086924f74caec, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c704052f6db5fb4381961d442aad5d8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f2cedc3d39d9f40be086924f74caec, type: 3}

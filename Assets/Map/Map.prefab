@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enviroment: {fileID: 11400000, guid: b9ea646a48d26ba42b3d17dadc80c30e, type: 2}
-  ruleSet: {fileID: 581989875868927097, guid: 4e26b8feb5407ef49bf3d70a17f64a04, type: 3}
+  ruleSets: {fileID: 11400000, guid: 578f86fe51d11334e87192a9f9e18d69, type: 2}
   sideRuleSet: {fileID: 5889012517237969276, guid: eed118a2bd1fb194687d809890f7cdbb,
     type: 3}
   speed: 10
