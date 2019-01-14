@@ -3,19 +3,40 @@
 public class SideBlock : MonoBehaviour
 {
     [SerializeField]
-    private bool isRight;
+    private SideType side;
 
     [SerializeField]
     private CharacterMovement charMovement;
 
-    private int counter = 0;
+    public int counter = 0;
+    private bool isRight = false;
+
+    private enum SideType
+    {
+        Left, Right, Ground
+    }
+
+    private void Start()
+    {
+        if (side == SideType.Right)
+        {
+            isRight = true;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         counter++;
         if (counter == 1)
         {
-            charMovement.SetBlockLaneSide(isRight, true);
+            if(side == SideType.Ground)
+            {
+                charMovement.SetCanJump(true);
+            }
+            else
+            {
+                charMovement.SetBlockLaneSide(isRight, true);
+            }
         }
     }
 
@@ -24,7 +45,14 @@ public class SideBlock : MonoBehaviour
         counter--;
         if (counter == 0)
         {
-            charMovement.SetBlockLaneSide(isRight, false);
+            if(side == SideType.Ground)
+            {
+                charMovement.SetCanJump(false);
+            }
+            else
+            {
+                charMovement.SetBlockLaneSide(isRight, false);
+            }
         }
     }
 }
