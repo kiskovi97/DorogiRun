@@ -5,11 +5,11 @@ public class Curve : System.Object
 {
     public Vector3 forward = new Vector3(0, 0, 1);
 
-    public float R = 10.0f;
+    public float R = 500.0f;
 
-    public float StartDistance = 30f;
+    public float StartDistance = 100f;
 
-    public float EndDistance = -10f;
+    public float EndDistance = -20f;
     
     private Vector3 GetPoint(float angle)
     {

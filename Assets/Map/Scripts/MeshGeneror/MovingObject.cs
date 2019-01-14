@@ -2,6 +2,7 @@
 
 public class MovingObject : MonoBehaviour
 {
+    public float length = 4.0f;
 
     MapValues mapValues;
 

@@ -17,6 +17,6 @@ MonoBehaviour:
     forward: {x: 0, y: 0, z: 10}
     R: 500
     StartDistance: 100
-    EndDistance: -10
+    EndDistance: -20
   sectorSize: 2
   sectorNumber: 3
