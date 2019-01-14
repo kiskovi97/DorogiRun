@@ -15,9 +15,6 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField]
     private LanePosition lane = LanePosition.Mid;
 
-    [SerializeField]
-    private float jumpVelocity = 0;
-
     private Rigidbody rigidBody;
 
     private bool inMove = false;
@@ -28,6 +25,7 @@ public class CharacterMovement : MonoBehaviour
 
     private bool rightBlocked = false;
     private bool leftBlocked = false;
+    private bool canJump = true;
 
     void Start()
     {
@@ -114,7 +112,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (rigidBody.velocity.y > 0 - jumpVelocity || rigidBody.velocity.y < 0 + jumpVelocity)
+        if (canJump)
         {
             rigidBody.velocity = new Vector3(0, jumpPower, 0);
         }
@@ -150,5 +148,10 @@ public class CharacterMovement : MonoBehaviour
         {
             leftBlocked = blockState;
         }
+    }
+
+    public void SetCanJump(bool state)
+    {
+        canJump = state;
     }
 }
