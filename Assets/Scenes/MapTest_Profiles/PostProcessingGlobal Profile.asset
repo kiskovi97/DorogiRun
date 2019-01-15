@@ -93,13 +93,13 @@ MonoBehaviour:
     value: 0.35
   smoothness:
     overrideState: 1
-    value: 0.308
+    value: 0.214
   roundness:
     overrideState: 1
     value: 1
   rounded:
     overrideState: 1
-    value: 0
+    value: 1
   mask:
     overrideState: 1
     value: {fileID: 0}

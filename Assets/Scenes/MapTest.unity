@@ -485,6 +485,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1030553851545390678, guid: 6b182b5638ef25d429ae521d6c243dd8,
+        type: 3}
+      propertyPath: antialiasingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030553851545390678, guid: 6b182b5638ef25d429ae521d6c243dd8,
+        type: 3}
+      propertyPath: fastApproximateAntialiasing.fastMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b182b5638ef25d429ae521d6c243dd8, type: 3}
 --- !u!1001 &5343596813435912516
@@ -552,6 +562,11 @@ PrefabInstance:
     - target: {fileID: 5343596812991359724, guid: 644e1f37437a26f43adf3632c839eaeb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5343596812991359715, guid: 644e1f37437a26f43adf3632c839eaeb,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
