@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField]
@@ -17,6 +18,8 @@ public class CharacterMovement : MonoBehaviour
 
     private Rigidbody rigidBody;
 
+    private Animator animator;
+
     private bool inMove = false;
     private float speed;
     private float direction;
@@ -27,10 +30,18 @@ public class CharacterMovement : MonoBehaviour
     private bool leftBlocked = false;
     private bool canJump = true;
 
+    private string lastAnimation;
+
+    private string leftMoveAnimation = "Left";
+    private string rightMoveAnimation = "Right";
+    private string jumpStartAnimation = "Jump";
+    private string jumpCycleAnimation = "JumpEnd";
+
     void Start()
     {
         speed = distanceBetweenLanes / time;
         rigidBody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -48,6 +59,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 transform.position = new Vector3(aimPositionX, transform.position.y, transform.position.z);
                 inMove = false;
+                animator.SetBool(lastAnimation, false);
             }
         }
     }
@@ -68,6 +80,8 @@ public class CharacterMovement : MonoBehaviour
         }
         rightBlocked = false;
         StartMovement(LanePosition.Left);
+        animator.SetBool(rightMoveAnimation, true);
+        lastAnimation = rightMoveAnimation;
     }
 
     private void MoveRight()
@@ -86,6 +100,8 @@ public class CharacterMovement : MonoBehaviour
         }
         leftBlocked = false;
         StartMovement(LanePosition.Right);
+        animator.SetBool(leftMoveAnimation, true);
+        lastAnimation = leftMoveAnimation;
     }
 
     private void StartMovement(LanePosition direction)
@@ -115,6 +131,8 @@ public class CharacterMovement : MonoBehaviour
         if (canJump)
         {
             rigidBody.velocity = new Vector3(0, jumpPower, 0);
+            animator.SetBool(jumpCycleAnimation, false);
+            animator.SetBool(jumpStartAnimation, true);
         }
     }
 
@@ -153,5 +171,10 @@ public class CharacterMovement : MonoBehaviour
     public void SetCanJump(bool state)
     {
         canJump = state;
+        if (state && animator.GetBool(jumpStartAnimation))
+        {
+            animator.SetBool(jumpStartAnimation, false);
+            animator.SetBool(jumpCycleAnimation, true);
+        }
     }
 }
