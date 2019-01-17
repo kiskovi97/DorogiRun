@@ -180,6 +180,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.347171, z: 0.5}
   m_Center: {x: 0, y: -0.07358551, z: 0}
+--- !u!54 &2037076591
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7326886101653400712}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!136 &1761954222
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -210,22 +226,6 @@ MonoBehaviour:
   distanceBetweenLanes: 2
   jumpPower: 10
   lane: 0
---- !u!54 &2037076591
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7326886101653400712}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1001 &7326886101653498400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -236,6 +236,10 @@ PrefabInstance:
     - target: {fileID: 100008, guid: 1042a5c7c607f8343b8a5b5c49089f1f, type: 3}
       propertyPath: m_Name
       value: Johnny
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 1042a5c7c607f8343b8a5b5c49089f1f, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 1042a5c7c607f8343b8a5b5c49089f1f, type: 3}
       propertyPath: m_LocalPosition.x
