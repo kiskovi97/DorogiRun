@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
 
+    [SerializeField]
+    private int secondMultiply = 3;
+
     private Text scoreText;
     private float score;
 
@@ -18,7 +21,7 @@ public class Score : MonoBehaviour
 
     void Update()
     {
-        score += Time.deltaTime;
+        score += Time.deltaTime*secondMultiply;
         PlayerData.actualGameScore = (int)score;
         scoreText.text = "" + (int)score;
     }
