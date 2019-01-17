@@ -16,6 +16,9 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField]
     private LanePosition lane = LanePosition.Mid;
 
+    [SerializeField]
+    private Gameover gameOver;
+
     private Rigidbody rigidBody;
 
     private Animator animator;
@@ -37,11 +40,17 @@ public class CharacterMovement : MonoBehaviour
     private string jumpStartAnimation = "Jump";
     private string jumpCycleAnimation = "JumpEnd";
 
+    private Vector3 originalPosition;
+    private LanePosition originalLane;
+
     void Start()
     {
         speed = distanceBetweenLanes / time;
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        gameOver.continueGame += Restart;
+        originalPosition = transform.position;
+        originalLane = lane;
     }
 
     private void Update()
@@ -176,5 +185,11 @@ public class CharacterMovement : MonoBehaviour
             animator.SetBool(jumpStartAnimation, false);
             animator.SetBool(jumpCycleAnimation, true);
         }
+    }
+
+    public void Restart()
+    {
+        transform.position = originalPosition;
+        lane = originalLane;
     }
 }
