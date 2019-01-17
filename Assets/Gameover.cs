@@ -31,9 +31,9 @@ public class Gameover : MonoBehaviour
         continueGame();
     }
 
-    public void GameOver()
+    public void GoToLobby()
     {
         Time.timeScale = 1;
-        sceneLoader.GoToGameOverScene();
+        sceneLoader.GoToLobby();
     }
 }

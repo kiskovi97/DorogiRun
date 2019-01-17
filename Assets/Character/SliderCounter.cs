@@ -32,13 +32,13 @@ public class SliderCounter : MonoBehaviour
     {
         if(slider.value == 0)
         {
-            GoToGameOver();
+            GoToLobby();
         }
         slider.value -= Time.unscaledDeltaTime * countingUnit;
     }
 
-    public void GoToGameOver()
+    public void GoToLobby()
     {
-        sceneLoader.GoToGameOverScene();
+        sceneLoader.GoToLobby();
     }
 }
