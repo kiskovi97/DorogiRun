@@ -10,7 +10,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField]
     private string GameScene = "Game";
 
-    public void LoadScene(string sceneName)
+    private void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
@@ -23,5 +23,10 @@ public class SceneLoader : MonoBehaviour
     public void GoToGameOverScene()
     {
         SceneManager.LoadScene(GameOverScene);
+    }
+
+    public void GoToGame()
+    {
+        SceneManager.LoadScene(GameScene);
     }
 }

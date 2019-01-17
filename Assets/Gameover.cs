@@ -13,7 +13,7 @@ public class Gameover : MonoBehaviour
     [SerializeField]
     private SliderCounter sliderCounter;
     [SerializeField]
-    private string gameOverScene = "GameOver";
+    private SceneLoader sceneLoader;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -34,7 +34,6 @@ public class Gameover : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 1;
-        SceneLoader sceneLoader = new SceneLoader();
-        sceneLoader.LoadScene(gameOverScene);
+        sceneLoader.GoToGameOverScene();
     }
 }
