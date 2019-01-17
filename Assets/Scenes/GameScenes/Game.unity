@@ -1282,7 +1282,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6, y: 1, z: 10}
+  m_Size: {x: 6, y: 1, z: 15}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1186359352
 Transform:
@@ -1292,7 +1292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1186359350}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1347129676}
@@ -1750,7 +1750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416921961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.01, z: -1.78}
+  m_LocalPosition: {x: 0, y: 5.01, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1827,6 +1827,10 @@ PrefabInstance:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 1416921962}
+    - target: {fileID: 1761954223, guid: a3568348fe426be48aedc8a8df66e8a4, type: 3}
+      propertyPath: distanceEpsilon
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3568348fe426be48aedc8a8df66e8a4, type: 3}
 --- !u!1 &1522472280
@@ -1879,6 +1883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 750c5e2e0dfa9bf419fd2543af48d11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  secondMultiply: 3
 --- !u!114 &1522472283
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -222,10 +222,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715942acc04d79b4fa8194d95f0a4533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.1
+  timeBetweenLaneChanging: 0.1
   distanceBetweenLanes: 2
-  jumpPower: 10
   lane: 0
+  jumpPower: 10
+  speedToOriginalPosition: 0.5
+  distanceEpsilon: 0.1
+  gameOver: {fileID: 0}
 --- !u!1001 &7326886101653498400
 PrefabInstance:
   m_ObjectHideFlags: 0

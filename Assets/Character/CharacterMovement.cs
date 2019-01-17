@@ -4,18 +4,25 @@
 [RequireComponent(typeof(Animator))]
 public class CharacterMovement : MonoBehaviour
 {
+    [Header("Lane settings")]
     [SerializeField]
-    private float time;
+    private float timeBetweenLaneChanging;
 
     [SerializeField]
     private float distanceBetweenLanes;
 
     [SerializeField]
-    private float jumpPower;
-
-    [SerializeField]
     private LanePosition lane = LanePosition.Mid;
 
+    [Header("Jump")]
+    [SerializeField]
+    private float jumpPower;
+
+    [Header("Run setting")]
+    [SerializeField]
+    private float speedToOriginalPosition;
+
+    [Header("Dependencies")]
     [SerializeField]
     private Gameover gameOver;
 
@@ -24,9 +31,9 @@ public class CharacterMovement : MonoBehaviour
     private Animator animator;
 
     private bool inMove = false;
-    private float speed;
-    private float direction;
-    private float movementTimer;
+    private float speedBetweenLanes;
+    private float directionBetweenLanes;
+    private float timeForGoOtherLane;
     private float aimPositionX;
 
     private bool rightBlocked = false;
@@ -45,32 +52,22 @@ public class CharacterMovement : MonoBehaviour
 
     void Start()
     {
-        speed = distanceBetweenLanes / time;
+        speedBetweenLanes = distanceBetweenLanes / timeBetweenLaneChanging;
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         gameOver.continueGame += Restart;
         originalPosition = transform.position;
         originalLane = lane;
+        aimPositionX = originalPosition.x;
     }
 
     private void Update()
     {
         InputCheck();
 
-        if (inMove)
-        {
-            if (movementTimer - Time.deltaTime > 0)
-            {
-                transform.position = transform.position + new Vector3(speed, 0, 0) * Time.deltaTime * direction;
-                movementTimer -= Time.deltaTime;
-            }
-            else
-            {
-                transform.position = new Vector3(aimPositionX, transform.position.y, transform.position.z);
-                inMove = false;
-                animator.SetBool(lastAnimation, false);
-            }
-        }
+        LaneMove();
+
+        PositionCheck();
     }
 
     private void MoveLeft()
@@ -88,7 +85,12 @@ public class CharacterMovement : MonoBehaviour
             lane = LanePosition.Mid;
         }
         rightBlocked = false;
-        StartMovement(LanePosition.Left);
+
+        directionBetweenLanes = -1;
+        aimPositionX -= distanceBetweenLanes;
+
+        StartMovement();
+
         animator.SetBool(rightMoveAnimation, true);
         lastAnimation = rightMoveAnimation;
     }
@@ -108,31 +110,19 @@ public class CharacterMovement : MonoBehaviour
             lane = LanePosition.Mid;
         }
         leftBlocked = false;
-        StartMovement(LanePosition.Right);
+        directionBetweenLanes = 1;
+        aimPositionX += distanceBetweenLanes;
+
+        StartMovement();
+
         animator.SetBool(leftMoveAnimation, true);
         lastAnimation = leftMoveAnimation;
     }
 
-    private void StartMovement(LanePosition direction)
+    private void StartMovement()
     {
         inMove = true;
-        movementTimer = time;
-        aimPositionX = transform.position.x;
-
-        if (direction == LanePosition.Left)
-        {
-            this.direction = -1;
-            aimPositionX -= distanceBetweenLanes;
-        }
-        else if(direction == LanePosition.Right)
-        {
-            this.direction = 1;
-            aimPositionX += distanceBetweenLanes;
-        }
-        else
-        {
-            this.direction = 0;
-        }
+        timeForGoOtherLane = timeBetweenLaneChanging;
     }
 
     private void Jump()
@@ -187,9 +177,60 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    public void Restart()
+    private void Restart()
     {
         transform.position = originalPosition;
         lane = originalLane;
+    }
+
+    private void LaneMove()
+    {
+        if (inMove)
+        {
+            if (timeForGoOtherLane - Time.deltaTime > 0)
+            {
+                transform.position = transform.position + new Vector3(speedBetweenLanes, 0, 0) * Time.deltaTime * directionBetweenLanes;
+                timeForGoOtherLane -= Time.deltaTime;
+            }
+            else
+            {
+                transform.position = new Vector3(aimPositionX, transform.position.y, transform.position.z);
+                inMove = false;
+                animator.SetBool(lastAnimation, false);
+            }
+        }
+    }
+
+    private void PositionCheck()
+    {
+        if (!inMove)
+        {
+            if(aimPositionX != transform.position.x)
+            {
+                rigidBody.MovePosition(new Vector3(aimPositionX, transform.position.y, transform.position.z));
+            }
+        }
+
+        if(transform.position.z != originalPosition.z)
+        {
+            int direction;
+            if (originalPosition.z > transform.position.z)
+            {
+                direction = 1;
+            }
+            else
+            {
+                direction = -1;
+            }
+
+            if (Mathf.Abs(transform.position.z - originalPosition.z) <= speedToOriginalPosition * Time.deltaTime)
+            {
+                rigidBody.MovePosition(new Vector3(transform.position.x, transform.position.y, originalPosition.z));
+            }
+            else
+            {
+                rigidBody.MovePosition(transform.position + new Vector3(0, 0, direction * speedToOriginalPosition * Time.deltaTime));
+            }
+        }
     }
 }

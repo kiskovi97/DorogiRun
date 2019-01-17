@@ -39,6 +39,6 @@ public class SliderCounter : MonoBehaviour
 
     public void GoToLobby()
     {
-        sceneLoader.GoToLobby();
+        sceneLoader.GoToLobbyAndSetScale();
     }
 }
