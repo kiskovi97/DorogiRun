@@ -47,6 +47,8 @@ public class CharacterMovement : MonoBehaviour
     private string jumpStartAnimation = "Jump";
     private string jumpCycleAnimation = "JumpEnd";
 
+    private Vector3 swipeStart;
+
     private Vector3 originalPosition;
     private LanePosition originalLane;
 
@@ -72,7 +74,11 @@ public class CharacterMovement : MonoBehaviour
 
     private void MoveLeft()
     {
-        if(lane == LanePosition.Left || leftBlocked)
+        if (inMove)
+        {
+            return;
+        }
+        if (lane == LanePosition.Left || leftBlocked)
         {
             return;
         }
@@ -97,6 +103,10 @@ public class CharacterMovement : MonoBehaviour
 
     private void MoveRight()
     {
+        if (inMove)
+        {
+            return;
+        }
         if (lane == LanePosition.Right || rightBlocked)
         {
             return;
@@ -137,6 +147,17 @@ public class CharacterMovement : MonoBehaviour
 
     private void InputCheck()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            swipeStart = Input.mousePosition;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            SwipeDirection swipeDirection = DirectionCalculating();
+            Move(swipeDirection);
+        }
+
+        //For testing
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
@@ -152,6 +173,24 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             MoveRight();
+        }
+    }
+
+    private void Move(SwipeDirection swipe)
+    {
+        switch (swipe)
+        {
+            case SwipeDirection.Left:
+                MoveLeft();
+                break;
+            case SwipeDirection.Right:
+                MoveRight();
+                break;
+            case SwipeDirection.Up:
+                Jump();
+                break;
+            default:
+                break;
         }
     }
 
@@ -232,5 +271,41 @@ public class CharacterMovement : MonoBehaviour
                 rigidBody.MovePosition(transform.position + new Vector3(0, 0, direction * speedToOriginalPosition * Time.deltaTime));
             }
         }
+    }
+
+    private SwipeDirection DirectionCalculating()
+    {
+        float x = Input.mousePosition.x;
+        float y = Input.mousePosition.y;
+
+        //Left or Right swipe
+        if(Mathf.Abs(swipeStart.x - x) >= Mathf.Abs(swipeStart.y - y))
+        {
+            if(swipeStart.x > x)
+            { 
+                return SwipeDirection.Left;
+            }
+            else if (swipeStart.x < x)
+            {
+                return SwipeDirection.Right;
+            }
+        }
+        else
+        {
+            if (swipeStart.y > y)
+            {
+                return SwipeDirection.Down;
+            }
+            else if (swipeStart.y < y)
+            {
+                return SwipeDirection.Up;
+            }
+        }
+        return SwipeDirection.Touch;
+    }
+
+    private enum SwipeDirection
+    {
+        Left, Up, Right, Down, Touch
     }
 }
