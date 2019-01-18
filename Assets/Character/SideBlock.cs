@@ -3,7 +3,7 @@
 public class SideBlock : MonoBehaviour
 {
     [SerializeField]
-    private SideType side;
+    private SideType side = SideType.Right;
 
     [SerializeField]
     private CharacterMovement charMovement;
