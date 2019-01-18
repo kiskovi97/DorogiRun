@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
@@ -32,8 +33,7 @@ public class CharacterMovement : MonoBehaviour
 
     private bool inMove = false;
     private float speedBetweenLanes;
-    private float directionBetweenLanes;
-    private float timeForGoOtherLane;
+    private float directionBetweenLanes = 1;
     private float aimPositionX;
 
     private bool rightBlocked = false;
@@ -66,8 +66,6 @@ public class CharacterMovement : MonoBehaviour
     private void Update()
     {
         InputCheck();
-
-        LaneMove();
 
         PositionCheck();
     }
@@ -132,7 +130,7 @@ public class CharacterMovement : MonoBehaviour
     private void StartMovement()
     {
         inMove = true;
-        timeForGoOtherLane = timeBetweenLaneChanging;
+        StartCoroutine(MoveToPosition());
     }
 
     private void Jump()
@@ -222,24 +220,6 @@ public class CharacterMovement : MonoBehaviour
         lane = originalLane;
     }
 
-    private void LaneMove()
-    {
-        if (inMove)
-        {
-            if (timeForGoOtherLane - Time.deltaTime > 0)
-            {
-                transform.position = transform.position + new Vector3(speedBetweenLanes, 0, 0) * Time.deltaTime * directionBetweenLanes;
-                timeForGoOtherLane -= Time.deltaTime;
-            }
-            else
-            {
-                transform.position = new Vector3(aimPositionX, transform.position.y, transform.position.z);
-                inMove = false;
-                animator.SetBool(lastAnimation, false);
-            }
-        }
-    }
-
     private void PositionCheck()
     {
         if (!inMove)
@@ -302,6 +282,21 @@ public class CharacterMovement : MonoBehaviour
             }
         }
         return SwipeDirection.Touch;
+    }
+
+    public IEnumerator MoveToPosition()
+    {
+        var currentPos = transform.position;
+        var t = 0f;
+        Vector3 position = new Vector3(aimPositionX, transform.position.y, transform.position.z);
+        while (t < 1)
+        {
+            t += Time.deltaTime / timeBetweenLaneChanging;
+            transform.position = Vector3.Lerp(currentPos, new Vector3(aimPositionX, transform.position.y, transform.position.z), t);
+            yield return null;
+        }
+        inMove = false;
+        animator.SetBool(lastAnimation, false);
     }
 
     private enum SwipeDirection
