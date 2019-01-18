@@ -15,6 +15,12 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void GoToLobbyAndSetScale()
+    {
+        Time.timeScale = 1;
+        GoToLobby();
+    }
+
     public void GoToLobby()
     {
         SceneManager.LoadScene(LobbyScene);
