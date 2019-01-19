@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class RandomSideRule : SideRuleSet
 {
@@ -21,7 +22,7 @@ public class RandomSideRule : SideRuleSet
         }
     }
 
-    public override void MakeAll(float speed)
+    public override IEnumerator MakeAll(float speed)
     {
         int[] tomb = mapValues.SideSector();
         foreach (int value in tomb)
@@ -40,6 +41,7 @@ public class RandomSideRule : SideRuleSet
                 }
                 obj.SetDistance(distance);
                 obj.Update();
+                yield return null;
             }
         }
     }

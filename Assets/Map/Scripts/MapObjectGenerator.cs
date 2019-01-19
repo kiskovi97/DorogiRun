@@ -19,7 +19,7 @@ public class MapObjectGenerator : MonoBehaviour
         mapValues = mesh.mapValues;
         NewRule();
         sideRuleSet.Set(mapValues, enviroment, transform);
-        sideRuleSet.MakeAll(speed);
+        StartCoroutine(sideRuleSet.MakeAll(speed));
         MakeSideObjects();
         Gameover.continueGame += Continue;
     }
