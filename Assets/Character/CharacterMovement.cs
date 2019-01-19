@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
@@ -33,7 +32,8 @@ public class CharacterMovement : MonoBehaviour
 
     private bool inMove = false;
     private float speedBetweenLanes;
-    private float directionBetweenLanes = 1;
+    private float directionBetweenLanes;
+    private float timeForGoOtherLane;
     private float aimPositionX;
 
     private bool rightBlocked = false;
@@ -46,8 +46,6 @@ public class CharacterMovement : MonoBehaviour
     private string rightMoveAnimation = "Right";
     private string jumpStartAnimation = "Jump";
     private string jumpCycleAnimation = "JumpEnd";
-
-    private Vector3 swipeStart;
 
     private Vector3 originalPosition;
     private LanePosition originalLane;
@@ -67,16 +65,14 @@ public class CharacterMovement : MonoBehaviour
     {
         InputCheck();
 
+        LaneMove();
+
         PositionCheck();
     }
 
     private void MoveLeft()
     {
-        if (inMove)
-        {
-            return;
-        }
-        if (lane == LanePosition.Left || leftBlocked)
+        if(lane == LanePosition.Left || leftBlocked)
         {
             return;
         }
@@ -101,10 +97,6 @@ public class CharacterMovement : MonoBehaviour
 
     private void MoveRight()
     {
-        if (inMove)
-        {
-            return;
-        }
         if (lane == LanePosition.Right || rightBlocked)
         {
             return;
@@ -130,7 +122,7 @@ public class CharacterMovement : MonoBehaviour
     private void StartMovement()
     {
         inMove = true;
-        StartCoroutine(MoveToPosition());
+        timeForGoOtherLane = timeBetweenLaneChanging;
     }
 
     private void Jump()
@@ -145,17 +137,6 @@ public class CharacterMovement : MonoBehaviour
 
     private void InputCheck()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            swipeStart = Input.mousePosition;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            SwipeDirection swipeDirection = DirectionCalculating();
-            Move(swipeDirection);
-        }
-
-        //For testing
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
@@ -171,24 +152,6 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             MoveRight();
-        }
-    }
-
-    private void Move(SwipeDirection swipe)
-    {
-        switch (swipe)
-        {
-            case SwipeDirection.Left:
-                MoveLeft();
-                break;
-            case SwipeDirection.Right:
-                MoveRight();
-                break;
-            case SwipeDirection.Up:
-                Jump();
-                break;
-            default:
-                break;
         }
     }
 
@@ -218,6 +181,24 @@ public class CharacterMovement : MonoBehaviour
     {
         transform.position = originalPosition;
         lane = originalLane;
+    }
+
+    private void LaneMove()
+    {
+        if (inMove)
+        {
+            if (timeForGoOtherLane - Time.deltaTime > 0)
+            {
+                transform.position = transform.position + new Vector3(speedBetweenLanes, 0, 0) * Time.deltaTime * directionBetweenLanes;
+                timeForGoOtherLane -= Time.deltaTime;
+            }
+            else
+            {
+                transform.position = new Vector3(aimPositionX, transform.position.y, transform.position.z);
+                inMove = false;
+                animator.SetBool(lastAnimation, false);
+            }
+        }
     }
 
     private void PositionCheck()
@@ -251,56 +232,5 @@ public class CharacterMovement : MonoBehaviour
                 rigidBody.MovePosition(transform.position + new Vector3(0, 0, direction * speedToOriginalPosition * Time.deltaTime));
             }
         }
-    }
-
-    private SwipeDirection DirectionCalculating()
-    {
-        float x = Input.mousePosition.x;
-        float y = Input.mousePosition.y;
-
-        //Left or Right swipe
-        if(Mathf.Abs(swipeStart.x - x) >= Mathf.Abs(swipeStart.y - y))
-        {
-            if(swipeStart.x > x)
-            { 
-                return SwipeDirection.Left;
-            }
-            else if (swipeStart.x < x)
-            {
-                return SwipeDirection.Right;
-            }
-        }
-        else
-        {
-            if (swipeStart.y > y)
-            {
-                return SwipeDirection.Down;
-            }
-            else if (swipeStart.y < y)
-            {
-                return SwipeDirection.Up;
-            }
-        }
-        return SwipeDirection.Touch;
-    }
-
-    public IEnumerator MoveToPosition()
-    {
-        var currentPos = transform.position;
-        var t = 0f;
-        Vector3 position = new Vector3(aimPositionX, transform.position.y, transform.position.z);
-        while (t < 1)
-        {
-            t += Time.deltaTime / timeBetweenLaneChanging;
-            transform.position = Vector3.Lerp(currentPos, new Vector3(aimPositionX, transform.position.y, transform.position.z), t);
-            yield return null;
-        }
-        inMove = false;
-        animator.SetBool(lastAnimation, false);
-    }
-
-    private enum SwipeDirection
-    {
-        Left, Up, Right, Down, Touch
     }
 }

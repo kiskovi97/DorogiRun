@@ -6,10 +6,10 @@ public class CharacterCamera : MonoBehaviour
     private Transform character;
 
     [SerializeField]
-    private float sideFollowPercent = 0.5f;
+    private float sideFollowPercent;
 
     [SerializeField]
-    private float jumpFollowPercent = 0.5f;
+    private float jumpFollowPercent;
 
     private float yPosition;
 
