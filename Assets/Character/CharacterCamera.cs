@@ -8,15 +8,18 @@ public class CharacterCamera : MonoBehaviour
     [SerializeField]
     private float sideFollowPercent;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    [SerializeField]
+    private float jumpFollowPercent;
 
+    private float yPosition;
+
+    private void Start()
+    {
+        yPosition = transform.position.y;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(character.position.x * sideFollowPercent, transform.position.y, transform.position.z);
+        transform.position = new Vector3(character.position.x * sideFollowPercent, yPosition + character.position.y * jumpFollowPercent, transform.position.z);
     }
 }

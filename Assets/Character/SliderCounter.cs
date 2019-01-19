@@ -8,29 +8,37 @@ public class SliderCounter : MonoBehaviour
     private float timeLimit = 5;
 
     [SerializeField]
-    private string sceneName;
+    private string gameOverScene;
 
+    [SerializeField]
     private SceneLoader sceneLoader;
 
+    [SerializeField]
     private Slider slider;
+
     private float countingUnit;
 
-    // Start is called before the first frame update
     void Start()
     {
-        slider = GetComponent<Slider>();
         countingUnit = 1 / timeLimit;
-        sceneLoader = new SceneLoader();
-        Debug.Log("staaart");
     }
 
-    // Update is called once per frame
+    private void OnEnable()
+    {
+        slider.value = 1;
+    }
+
     void Update()
     {
         if(slider.value == 0)
         {
-            sceneLoader.LoadScene(sceneName);
+            GoToLobby();
         }
-        slider.value -= Time.deltaTime * countingUnit;
+        slider.value -= Time.unscaledDeltaTime * countingUnit;
+    }
+
+    public void GoToLobby()
+    {
+        sceneLoader.GoToLobbyAndSetScale();
     }
 }
