@@ -14,7 +14,7 @@ public class ScoreIniter : MonoBehaviour
         {
             FileManager.Save();
         }
-        topScore.text = "Best score: " + PlayerData.topScore;
-        lastScore.text = "Last score: " + PlayerData.actualGameScore;
+        topScore.text = "" + PlayerData.topScore;
+        lastScore.text = "" + PlayerData.actualGameScore;
     }
 }
