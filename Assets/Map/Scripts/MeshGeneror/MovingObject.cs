@@ -4,6 +4,8 @@ public class MovingObject : MonoBehaviour
 {
     public float length = 4.0f;
 
+    public bool side = false;
+
     MapValues mapValues;
 
     int sector;
@@ -34,5 +36,10 @@ public class MovingObject : MonoBehaviour
         if (distance < minDistance) Destroy(this.gameObject, 0.01f);
         transform.localPosition = mapValues.GetPosition(sector, distance);
         transform.rotation = mapValues.GetRotation(distance);
+    }
+
+    public bool Close(float far)
+    {
+        return (distance - far < minDistance);
     }
 }
