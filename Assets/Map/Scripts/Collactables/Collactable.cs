@@ -6,8 +6,9 @@ public abstract class Collactable : MovingObject
 {
     public void OnTriggerEnter(Collider other)
     {
+        if (other.tag != "Player") return;
         TriggerFunction(other);
-        Destroy(this, 0.01f);
+        Destroy(gameObject, 0.01f);
     }
 
     protected abstract void TriggerFunction(Collider other);

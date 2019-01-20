@@ -12,7 +12,7 @@ public class Enviroment : ScriptableObject
     public class ObjectFrequency
     {
         public MovingObject obj;
-        public float frequency;
+        public float frequency=1.0f;
     }
 
     public MovingObject GetObstacle()
@@ -72,7 +72,7 @@ public class Enviroment : ScriptableObject
         if (collactables == null) return null;
         foreach (ObjectFrequency objectFrequency in collactables)
         {
-            if (Random.value > objectFrequency.frequency)
+            if (Random.value < objectFrequency.frequency)
             {
                 return Instantiate(objectFrequency.obj);
             }
