@@ -6,6 +6,14 @@ public class Enviroment : ScriptableObject
 {
     public MovingObject[] obstacles;
     public MovingObject[] sideObjects;
+    public ObjectFrequency[] collactables;
+
+    [System.Serializable]
+    public class ObjectFrequency
+    {
+        public MovingObject obj;
+        public float frequency=1.0f;
+    }
 
     public MovingObject GetObstacle()
     {
@@ -55,6 +63,19 @@ public class Enviroment : ScriptableObject
         {
             int selected = (int)(Random.value * list.Count);
             return Instantiate(list[selected], new Vector3(0, 100, 0), new Quaternion());
+        }
+        return null;
+    }
+
+    public MovingObject GetCollactable()
+    {
+        if (collactables == null) return null;
+        foreach (ObjectFrequency objectFrequency in collactables)
+        {
+            if (Random.value < objectFrequency.frequency)
+            {
+                return Instantiate(objectFrequency.obj);
+            }
         }
         return null;
     }
