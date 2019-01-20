@@ -33,7 +33,6 @@ public class SceneLoader : MonoBehaviour
 
     public void GoToGame()
     {
-        Debug.Log("GoTOGame");
         SceneManager.LoadScene(GameScene);
     }
 
