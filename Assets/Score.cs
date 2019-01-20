@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Text))]
 public class Score : MonoBehaviour
 {
 
     [SerializeField]
     private int secondMultiply = 3;
 
-    private Text scoreText;
+    public Text scoreText;
+    public Text coinText;
     private float score;
 
     void Start()
     {
-        scoreText = GetComponent<Text>();
         scoreText.text = "0";
+        coinText.text = "0";
         score = 0;
         PlayerData.actualGameScore = (int)score;
     }
@@ -24,5 +24,6 @@ public class Score : MonoBehaviour
         score += Time.deltaTime*secondMultiply;
         PlayerData.actualGameScore = (int)score;
         scoreText.text = "" + (int)score;
+        coinText.text = "" + PlayerData.actualCoin;
     }
 }

@@ -6,6 +6,6 @@ public class Coin : Collactable
 {
     protected override void TriggerFunction(Collider other)
     {
-        Debug.Log("Do Coin Stuff");
+        PlayerData.actualCoin += 1;
     }
 }
