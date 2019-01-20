@@ -23,10 +23,6 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField]
     private float speedToOriginalPosition;
 
-    [Header("Dependencies")]
-    [SerializeField]
-    private Gameover gameOver;
-
     private Rigidbody rigidBody;
 
     private Animator animator;
@@ -229,8 +225,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Restart()
     {
-        transform.position = originalPosition;
-        lane = originalLane;
+        transform.position = new Vector3(aimPositionX, originalPosition.y, originalPosition.z);
     }
 
     private void PositionCheck()
@@ -300,11 +295,10 @@ public class CharacterMovement : MonoBehaviour
     {
         var currentPos = transform.position;
         var t = 0f;
-        Vector3 position = new Vector3(aimPositionX, transform.position.y, transform.position.z);
         while (t < 1)
         {
             t += Time.deltaTime / timeBetweenLaneChanging;
-            transform.position = Vector3.Lerp(currentPos, new Vector3(aimPositionX, transform.position.y, transform.position.z), t);
+            rigidBody.MovePosition(Vector3.Lerp(currentPos, new Vector3(aimPositionX, transform.position.y, transform.position.z), t));
             yield return null;
         }
         inMove = false;
