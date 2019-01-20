@@ -4,7 +4,7 @@ public class Gameover : MonoBehaviour
 {
     public delegate void ContinueGame();
 
-    public event ContinueGame continueGame;
+    public static event ContinueGame continueGame;
 
     private string playerTag = "Player";
 

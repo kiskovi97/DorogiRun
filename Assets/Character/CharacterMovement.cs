@@ -56,7 +56,7 @@ public class CharacterMovement : MonoBehaviour
         speedBetweenLanes = distanceBetweenLanes / timeBetweenLaneChanging;
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        gameOver.continueGame += Restart;
+        Gameover.continueGame += Restart;
         originalPosition = transform.position;
         originalLane = lane;
         aimPositionX = originalPosition.x;
