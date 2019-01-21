@@ -74,7 +74,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 swipeStart = touch.position;
             }
-            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            else if (touch.phase == TouchPhase.Moved)
             {
                 SwipeDirection swipeDirection = DirectionCalculating(touch.position);
                 Move(swipeDirection);
