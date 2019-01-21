@@ -3,6 +3,9 @@ using UnityEditor;
 
 public class JumpRule : RuleSet
 {
+    private static readonly float jumpHeight = 2f;
+    private static readonly int coinNumber = 9;
+    private static readonly float jumpLength = 15f;
 
     public float minLength = 10f;
 
@@ -12,6 +15,8 @@ public class JumpRule : RuleSet
         {
             if (Random.value > 0.5f)
                 NewObstacle(i, speed, mapValues.StartDistance);
+            else if (Random.value > 0.5f)
+                CollactablesLine(i, speed);
             else
                 Collactables(i, speed);
         }
@@ -29,14 +34,28 @@ public class JumpRule : RuleSet
 
     void Collactables(int sector, float speed)
     {
-        for (int index = 0; index < 5; index++)
+        float step = jumpLength / coinNumber;
+        float jumpStep = jumpHeight / (coinNumber / 2);
+        for (int index = 0; index < coinNumber; index++)
         {
-            float step = length / 7f;
-            float height = index;
-            if (index >= 3) height =( -1 * index + 4);
-            float distance = mapValues.StartDistance - step * index + step * 2f;
-            if (index == 2) NewObstacle(sector, speed, distance);
-            NewCollacltable(sector, speed, distance, height + 0.3f);
+            float heightIndex = index;
+            if (index >= (coinNumber / 2 + 1)) heightIndex = (coinNumber - 1 - index);
+            float distance = mapValues.StartDistance - step * index + step * (coinNumber / 2);
+
+            // Kozeppont
+            if (index == (coinNumber/2)) NewObstacle(sector, speed, distance);
+
+            NewCollacltable(sector, speed, distance, heightIndex * jumpStep + minHeight);
+        }
+    }
+
+    void CollactablesLine(int sector, float speed)
+    {
+        float step = jumpLength / coinNumber;
+        for (int index = 0; index < coinNumber; index++)
+        {
+            float distance = mapValues.StartDistance - step * index + step * (coinNumber / 2);
+            NewCollacltable(sector, speed, distance);
         }
     }
 }
