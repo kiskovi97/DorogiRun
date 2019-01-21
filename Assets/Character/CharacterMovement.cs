@@ -1,4 +1,5 @@
-﻿﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -10,7 +11,7 @@ public class CharacterMovement : MonoBehaviour
     private float timeBetweenLaneChanging;
 
     [SerializeField]
-    private float distanceBetweenLanes;
+    private float distanceBetweenLanes; //TODO: Ask it 
 
     [SerializeField]
     private LanePosition lane = LanePosition.Mid;
@@ -19,21 +20,22 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField]
     private float jumpPower;
 
-    [Header("Run setting")]
+    [Header("UI")]
     [SerializeField]
-    private float speedToOriginalPosition;
+    private GameObject continueQuestion;
+
+    [Header("Dependecy")]
+    [SerializeField]
+    private Gameover gameOver;
 
     private Rigidbody rigidBody;
 
     private Animator animator;
 
     private bool inMove = false;
-    private float speedBetweenLanes;
-    private float directionBetweenLanes = 1;
+    private ChangingDirection directionBetweenLanes;
     private float aimPositionX;
 
-    private bool rightBlocked = false;
-    private bool leftBlocked = false;
     private bool canJump = true;
 
     private string lastAnimation;
@@ -42,27 +44,124 @@ public class CharacterMovement : MonoBehaviour
     private string rightMoveAnimation = "Right";
     private string jumpStartAnimation = "Jump";
     private string jumpCycleAnimation = "JumpEnd";
+
     private Vector3 swipeStart;
 
     private Vector3 originalPosition;
-    private LanePosition originalLane;
+
+    private bool sideBlock = false;
 
     void Start()
     {
-        speedBetweenLanes = distanceBetweenLanes / timeBetweenLaneChanging;
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        Gameover.continueGame += Restart;
+        gameOver.continueGame += Restart;
         originalPosition = transform.position;
-        originalLane = lane;
         aimPositionX = originalPosition.x;
     }
 
     private void Update()
     {
         InputCheck();
+    }
 
-        PositionCheck();
+    private void InputCheck()
+    {
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                swipeStart = touch.position;
+            }
+            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            {
+                SwipeDirection swipeDirection = DirectionCalculating(touch.position);
+                Move(swipeDirection);
+            }
+        }
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    swipeStart = Input.mousePosition;
+        //}
+        //else if (Input.GetMouseButtonUp(0))
+        //{
+        //    SwipeDirection swipeDirection = DirectionCalculating();
+        //    Move(swipeDirection);
+        //}
+
+        //For testing (windows)
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+        if (inMove)
+        {
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            MoveLeft();
+        }
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            MoveRight();
+        }
+    }
+
+    private void Restart()
+    {
+        transform.position = new Vector3(aimPositionX, originalPosition.y, originalPosition.z);
+        continueQuestion.SetActive(false);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Vector3 normal = collision.GetContact(0).normal;
+
+        int x = Convert.ToInt32(normal.x);
+        int y = Convert.ToInt32(normal.y);
+        int z = Convert.ToInt32(normal.z);
+
+        //Side
+        if (y == 0 && z == 0 && (x == 1 || x == -1))
+        {
+            sideBlock = true;
+        }
+        // Something hit him
+        else if (y == 0 && x == 0 && z == -1)
+        {
+            continueQuestion.SetActive(true);
+            Time.timeScale = 0;
+        }
+        //Ground or rampa hit
+        else
+        {
+            canJump = true;
+            animator.SetBool(jumpCycleAnimation, true);
+            animator.SetBool(jumpStartAnimation, false);
+        }
+    }
+
+    #region Move part
+
+    private void Move(SwipeDirection swipe)
+    {
+        switch (swipe)
+        {
+            case SwipeDirection.Left:
+                MoveLeft();
+                break;
+            case SwipeDirection.Right:
+                MoveRight();
+                break;
+            case SwipeDirection.Up:
+                Jump();
+                break;
+            default:
+                break;
+        }
     }
 
     private void MoveLeft()
@@ -71,11 +170,11 @@ public class CharacterMovement : MonoBehaviour
         {
             return;
         }
-        if (lane == LanePosition.Left || leftBlocked)
+        if (lane == LanePosition.Left)
         {
             return;
         }
-        if(lane == LanePosition.Mid)
+        if (lane == LanePosition.Mid)
         {
             lane = LanePosition.Left;
         }
@@ -83,9 +182,8 @@ public class CharacterMovement : MonoBehaviour
         {
             lane = LanePosition.Mid;
         }
-        rightBlocked = false;
 
-        directionBetweenLanes = -1;
+        directionBetweenLanes = ChangingDirection.Left;
         aimPositionX -= distanceBetweenLanes;
 
         StartMovement();
@@ -100,7 +198,7 @@ public class CharacterMovement : MonoBehaviour
         {
             return;
         }
-        if (lane == LanePosition.Right || rightBlocked)
+        if (lane == LanePosition.Right)
         {
             return;
         }
@@ -112,8 +210,7 @@ public class CharacterMovement : MonoBehaviour
         {
             lane = LanePosition.Mid;
         }
-        leftBlocked = false;
-        directionBetweenLanes = 1;
+        directionBetweenLanes = ChangingDirection.Right;
         aimPositionX += distanceBetweenLanes;
 
         StartMovement();
@@ -135,131 +232,67 @@ public class CharacterMovement : MonoBehaviour
             rigidBody.velocity = new Vector3(0, jumpPower, 0);
             animator.SetBool(jumpCycleAnimation, false);
             animator.SetBool(jumpStartAnimation, true);
+            canJump = false;
         }
     }
 
-    private void InputCheck()
+    private IEnumerator MoveToPosition()
     {
-        if (Input.touchCount > 0)
+        var currentPos = transform.position;
+        var t = 0f;
+        while (t < 1)
         {
-            Touch touch = Input.GetTouch(0);
-            if(touch.phase == TouchPhase.Began)
+            if (sideBlock)
             {
-                swipeStart = touch.position;
+                t = 1 - t;
+                aimPositionX = currentPos.x;
+                currentPos = transform.position;
+                CanceledLaneSwitch();
+                sideBlock = false;
             }
-            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            t += Time.deltaTime / timeBetweenLaneChanging;
+            rigidBody.MovePosition(Vector3.Lerp(currentPos, new Vector3(aimPositionX, transform.position.y, transform.position.z), t));
+            yield return null;
+        }
+        inMove = false;
+        animator.SetBool(lastAnimation, false);
+    }
+
+    private void CanceledLaneSwitch()
+    {
+        if (directionBetweenLanes == ChangingDirection.Left)
+        {
+            if (lane == LanePosition.Left)
             {
-                SwipeDirection swipeDirection = DirectionCalculating(touch.position);
-                Move(swipeDirection);
+                lane = LanePosition.Mid;
             }
-        }
-
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    swipeStart = Input.mousePosition;
-        //}
-        //else if (Input.GetMouseButtonUp(0))
-        //{
-        //    SwipeDirection swipeDirection = DirectionCalculating();
-        //    Move(swipeDirection);
-        //}
-
-        //For testing
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
-        if (inMove)
-        {
-            return;
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            MoveLeft();
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            MoveRight();
-        }
-    }
-
-    private void Move(SwipeDirection swipe)
-    {
-        switch (swipe)
-        {
-            case SwipeDirection.Left:
-                MoveLeft();
-                break;
-            case SwipeDirection.Right:
-                MoveRight();
-                break;
-            case SwipeDirection.Up:
-                Jump();
-                break;
-            default:
-                break;
-        }
-    }
-
-    public void SetBlockLaneSide(bool isRight, bool blockState)
-    {
-        if (isRight)
-        {
-            rightBlocked = blockState;
+            else
+            {
+                lane = LanePosition.Right;
+            }
         }
         else
         {
-            leftBlocked = blockState;
-        }
-    }
-
-    public void SetCanJump(bool state)
-    {
-        canJump = state;
-        if (state && animator.GetBool(jumpStartAnimation))
-        {
-            animator.SetBool(jumpStartAnimation, false);
-            animator.SetBool(jumpCycleAnimation, true);
-        }
-    }
-
-    private void Restart()
-    {
-        transform.position = new Vector3(aimPositionX, originalPosition.y, originalPosition.z);
-    }
-
-    private void PositionCheck()
-    {
-        if (!inMove)
-        {
-            if(aimPositionX != transform.position.x)
+            if (lane == LanePosition.Right)
             {
-                rigidBody.MovePosition(new Vector3(aimPositionX, transform.position.y, transform.position.z));
-            }
-        }
-
-        if(transform.position.z != originalPosition.z)
-        {
-            int direction;
-            if (originalPosition.z > transform.position.z)
-            {
-                direction = 1;
+                lane = LanePosition.Mid;
             }
             else
             {
-                direction = -1;
-            }
-
-            if (Mathf.Abs(transform.position.z - originalPosition.z) <= speedToOriginalPosition * Time.deltaTime)
-            {
-                rigidBody.MovePosition(new Vector3(transform.position.x, transform.position.y, originalPosition.z));
-            }
-            else
-            {
-                rigidBody.MovePosition(transform.position + new Vector3(0, 0, direction * speedToOriginalPosition * Time.deltaTime));
+                lane = LanePosition.Left;
             }
         }
     }
+
+    private enum ChangingDirection
+    {
+        Right, Left
+    }
+
+    #endregion
+
+    #region Swipe
+
     private SwipeDirection DirectionCalculating(Vector3 position)
     {
         float x = position.x;
@@ -291,22 +324,9 @@ public class CharacterMovement : MonoBehaviour
         return SwipeDirection.Touch;
     }
 
-    public IEnumerator MoveToPosition()
-    {
-        var currentPos = transform.position;
-        var t = 0f;
-        while (t < 1)
-        {
-            t += Time.deltaTime / timeBetweenLaneChanging;
-            rigidBody.MovePosition(Vector3.Lerp(currentPos, new Vector3(aimPositionX, transform.position.y, transform.position.z), t));
-            yield return null;
-        }
-        inMove = false;
-        animator.SetBool(lastAnimation, false);
-    }
-
     private enum SwipeDirection
     {
         Left, Up, Right, Down, Touch
     }
+    #endregion
 }

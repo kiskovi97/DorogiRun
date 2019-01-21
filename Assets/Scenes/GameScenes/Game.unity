@@ -2120,7 +2120,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1416921964}
-  - component: {fileID: 1416921963}
   - component: {fileID: 1416921962}
   m_Layer: 0
   m_Name: DeadZone
@@ -2141,22 +2140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5326f1bd8728cb340bab1279b61f58f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  continueQuestion: {fileID: 429772837}
-  sliderCounter: {fileID: 1624588283}
   sceneLoader: {fileID: 1356910144}
---- !u!65 &1416921963
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416921961}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6, y: 10, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1416921964
 Transform:
   m_ObjectHideFlags: 0
@@ -2239,29 +2223,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1761954223, guid: a3568348fe426be48aedc8a8df66e8a4, type: 3}
-      propertyPath: gameOver
+      propertyPath: continueQuestion
       value: 
-      objectReference: {fileID: 1416921962}
-    - target: {fileID: 1761954223, guid: a3568348fe426be48aedc8a8df66e8a4, type: 3}
-      propertyPath: distanceEpsilon
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1761954223, guid: a3568348fe426be48aedc8a8df66e8a4, type: 3}
-      propertyPath: timeBetweenLaneChanging
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1761954222, guid: a3568348fe426be48aedc8a8df66e8a4, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2037076591, guid: a3568348fe426be48aedc8a8df66e8a4, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2037076591, guid: a3568348fe426be48aedc8a8df66e8a4, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 429772837}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3568348fe426be48aedc8a8df66e8a4, type: 3}
 --- !u!1 &1522472280
