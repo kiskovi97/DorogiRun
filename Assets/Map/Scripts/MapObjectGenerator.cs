@@ -10,6 +10,10 @@ public class MapObjectGenerator : MonoBehaviour
     private MapMesh mesh;
     public float speed = 5.0f;
     public float sideObjectFrequency = 2.0f;
+    public float destroyDistance = 60f;
+
+    [SerializeField]
+    private Gameover gameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +22,9 @@ public class MapObjectGenerator : MonoBehaviour
         mapValues = mesh.mapValues;
         NewRule();
         sideRuleSet.Set(mapValues, enviroment, transform);
-        sideRuleSet.MakeAll(speed);
+        StartCoroutine(sideRuleSet.MakeAll(speed));
         MakeSideObjects();
+        gameOver.continueGame += Continue;
     }
 
     private void Update()
@@ -41,5 +46,14 @@ public class MapObjectGenerator : MonoBehaviour
         float length = sideRuleSet.length;
         sideRuleSet.Make(speed);
         Invoke("MakeSideObjects", length / speed);
+    }
+
+    void Continue()
+    {
+        MovingObject[] objects = Object.FindObjectsOfType<MovingObject>();
+        foreach(MovingObject obj in objects)
+        {
+            if (!obj.side && obj.Close(destroyDistance)) Destroy(obj.gameObject);
+        }
     }
 }

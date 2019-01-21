@@ -8,7 +8,12 @@ public class FileManager
 
     public static void Save()
     {
-        PlayerData.topScore = PlayerData.actualGameScore;
+        PlayerData.allCoin += PlayerData.actualCoin;
+        PlayerData.actualCoin = 0;
+        if (PlayerData.actualGameScore > PlayerData.topScore)
+        {
+            PlayerData.topScore = PlayerData.actualGameScore;
+        }
         string deviceFileLocation = Application.persistentDataPath + "/" + fileName;
 
         BinaryFormatter bf = new BinaryFormatter();
@@ -17,6 +22,7 @@ public class FileManager
         file.Close();
 
         data.topScore = PlayerData.topScore;
+        data.allCoin = PlayerData.allCoin;
 
         FileStream fileForSave = File.Create(deviceFileLocation);
         bf.Serialize(fileForSave, data);
@@ -35,6 +41,7 @@ public class FileManager
             file.Close();
 
             PlayerData.topScore = psData.topScore;
+            PlayerData.allCoin = psData.allCoin;
         }
         else
         {
@@ -42,6 +49,7 @@ public class FileManager
             FileStream file = File.Open(deviceFileLocation, FileMode.Create);
             Data data = new Data();
             data.topScore = 0;
+            data.allCoin = 0;
 
             bf.Serialize(file, data);
             file.Close();

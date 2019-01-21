@@ -11,8 +11,8 @@ public class OneWayRule : RuleSet
         int sector = mapValues.RandomSector();
         for (int i=0; i<mapValues.SectorNumber; i++)
         {
-            if (i == sector) continue;
-            NewObstacle(i, speed);
+            if (i == sector) NewCollacltable(i, speed, mapValues.StartDistance);
+            else NewObstacle(i, speed);
         }
     }
 
