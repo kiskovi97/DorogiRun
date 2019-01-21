@@ -18,7 +18,7 @@ public abstract class RuleSet : MonoBehaviour
 
     public abstract void Make(float speed);
 
-    protected void NewCollacltable(int sector, float speed, float distance, float height = 0f)
+    protected void NewCollacltable(int sector, float speed, float distance, float height = 0.3f)
     {
         MovingObject obj = enviroment.GetCollactable();
         if (obj == null) return;
