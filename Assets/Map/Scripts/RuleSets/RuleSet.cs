@@ -17,4 +17,16 @@ public abstract class RuleSet : MonoBehaviour
     }
 
     public abstract void Make(float speed);
+
+    protected void NewCollacltable(int sector, float speed, float distance, float height = 0f)
+    {
+        MovingObject obj = enviroment.GetCollactable();
+        if (obj == null) return;
+        obj.SetValues(mapValues, sector, speed);
+        obj.transform.parent = parent;
+        obj.SetDistance(distance);
+        obj.SetHeight(height);
+        obj.Update();
+    }
+
 }
