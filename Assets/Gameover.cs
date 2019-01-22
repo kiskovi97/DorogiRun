@@ -11,7 +11,6 @@ public class Gameover : MonoBehaviour
 
     public void Continue()
     {
-        Time.timeScale = 1;
         continueGame();
     }
 
