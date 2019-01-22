@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class ScoreIniter : MonoBehaviour
 {
+    [Header("Optional")]
     [SerializeField]
     private Text topScore;
     [SerializeField]
@@ -13,8 +14,22 @@ public class ScoreIniter : MonoBehaviour
     void Start()
     {
         FileManager.Save();
-        topScore.text = "" + PlayerData.topScore;
-        lastScore.text = "" + PlayerData.actualGameScore;
-        allCoin.text = "" + PlayerData.allCoin;
+        Init();
+    }
+
+    public void Init()
+    {
+        if (topScore != null)
+        {
+            topScore.text = "" + PlayerData.topScore;
+        }
+        if (lastScore != null)
+        {
+            lastScore.text = "" + PlayerData.actualGameScore;
+        }
+        if (allCoin != null)
+        {
+            allCoin.text = "" + PlayerData.allCoin;
+        }
     }
 }

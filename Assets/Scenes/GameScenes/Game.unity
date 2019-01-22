@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 956159209}
-  m_IndirectSpecularColor: {r: 0.17089435, g: 0.20607537, b: 0.27449307, a: 1}
+  m_IndirectSpecularColor: {r: 0.17089844, g: 0.20607677, b: 0.27449414, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 231174374}
   - component: {fileID: 231174373}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -988,7 +988,7 @@ GameObject:
   - component: {fileID: 690917353}
   - component: {fileID: 690917352}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,6 +1293,7 @@ GameObject:
   - component: {fileID: 854504072}
   - component: {fileID: 854504071}
   - component: {fileID: 854504070}
+  - component: {fileID: 854504073}
   m_Layer: 5
   m_Name: YesButton
   m_TagString: Untagged
@@ -1412,6 +1413,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854504068}
   m_CullTransparentMesh: 0
+--- !u!114 &854504073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854504068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c5f77118806f040b24a23131fcca47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseRevivePrice: 1
+  multiplyValue: 2
+  maxReviveCount: 100
+  amountText: {fileID: 231174373}
+  continueButton: {fileID: 854504070}
 --- !u!1 &890820431
 GameObject:
   m_ObjectHideFlags: 0
