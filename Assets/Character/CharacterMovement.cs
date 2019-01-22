@@ -74,22 +74,12 @@ public class CharacterMovement : MonoBehaviour
             {
                 swipeStart = touch.position;
             }
-            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            else if (touch.phase == TouchPhase.Moved)
             {
                 SwipeDirection swipeDirection = DirectionCalculating(touch.position);
                 Move(swipeDirection);
             }
         }
-
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    swipeStart = Input.mousePosition;
-        //}
-        //else if (Input.GetMouseButtonUp(0))
-        //{
-        //    SwipeDirection swipeDirection = DirectionCalculating();
-        //    Move(swipeDirection);
-        //}
 
         //For testing (windows)
         if (Input.GetKeyDown(KeyCode.Space))
@@ -133,7 +123,6 @@ public class CharacterMovement : MonoBehaviour
         else if (y == 0 && x == 0 && z == -1)
         {
             continueQuestion.SetActive(true);
-            Time.timeScale = 0;
         }
         //Ground or rampa hit
         else

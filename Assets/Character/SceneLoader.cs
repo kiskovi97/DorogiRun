@@ -3,12 +3,10 @@ using UnityEngine;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField]
     private string LobbyScene = "Lobby";
-    [SerializeField]
     private string GameScene = "Game";
-    [SerializeField]
-    private string Main = "Main";
+    private string MainScene = "Main";
+    private string StoreScene = "Store";
 
     private void LoadScene(string sceneName)
     {
@@ -28,13 +26,18 @@ public class SceneLoader : MonoBehaviour
 
     public void GoToMain()
     {
-        SceneManager.LoadScene(Main);
+        SceneManager.LoadScene(MainScene);
     }
 
     public void GoToGame()
     {
         SceneManager.LoadScene(GameScene);
     }
+
+    public void GoToStore()
+    {
+        SceneManager.LoadScene(StoreScene);
+    }      
 
     public void Quit()
     {

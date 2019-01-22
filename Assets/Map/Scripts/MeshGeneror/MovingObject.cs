@@ -6,6 +6,8 @@ public class MovingObject : MonoBehaviour
 
     private float height = 0f;
 
+    public float offset = 0.0f;
+
     public bool side = false;
 
     MapValues mapValues;
@@ -41,7 +43,7 @@ public class MovingObject : MonoBehaviour
     {
         distance -= Time.deltaTime * speed;
         if (distance < minDistance) Destroy(this.gameObject, 0.01f);
-        transform.localPosition = mapValues.GetPosition(sector, distance) + new Vector3(0,height,0);
+        transform.localPosition = mapValues.GetPosition(sector, distance, offset) + new Vector3(0,height,0);
         transform.rotation = mapValues.GetRotation(distance);
     }
 
