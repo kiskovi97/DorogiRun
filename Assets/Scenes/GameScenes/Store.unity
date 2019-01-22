@@ -390,7 +390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000011039455, y: 0.00009676809}
+  m_AnchoredPosition: {x: -0.000011039455, y: 0.0001021669}
   m_SizeDelta: {x: 17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &536655753
@@ -1524,55 +1524,8 @@ PrefabInstance:
       propertyPath: scoreIniter
       value: 
       objectReference: {fileID: 394482557}
-    - target: {fileID: 8941329072565231287, guid: 0607bf1f5ee903c48885ee0a8099f504,
-        type: 3}
-      propertyPath: price
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078334013218870363, guid: 0607bf1f5ee903c48885ee0a8099f504,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078334013218870363, guid: 0607bf1f5ee903c48885ee0a8099f504,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078334013218870363, guid: 0607bf1f5ee903c48885ee0a8099f504,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078334013218870363, guid: 0607bf1f5ee903c48885ee0a8099f504,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4427043056681470693}
-    - target: {fileID: 3078334013218870363, guid: 0607bf1f5ee903c48885ee0a8099f504,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuyOne
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078334013218870363, guid: 0607bf1f5ee903c48885ee0a8099f504,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0607bf1f5ee903c48885ee0a8099f504, type: 3}
---- !u!114 &4427043056681470693 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8941329072565231287, guid: 0607bf1f5ee903c48885ee0a8099f504,
-    type: 3}
-  m_PrefabInstance: {fileID: 4427043056681470692}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ab8e580fca0744fafc889d5d390fad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &7556990351045283230 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7556990351045283230, guid: 0607bf1f5ee903c48885ee0a8099f504,
