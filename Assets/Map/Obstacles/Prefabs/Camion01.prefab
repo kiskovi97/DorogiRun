@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 10
+  offset: 0
+  side: 0
 --- !u!65 &3261829365720139806
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58,8 +60,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7688711, y: 2.644681, z: 10.046218}
-  m_Center: {x: 0.008286595, y: 1.3068836, z: 3.892243}
+  m_Size: {x: 1.7688711, y: 2.5574312, z: 10.046218}
+  m_Center: {x: 0.008286595, y: 1.2632587, z: 3.892243}
 --- !u!54 &5655603832139885013
 Rigidbody:
   m_ObjectHideFlags: 0
