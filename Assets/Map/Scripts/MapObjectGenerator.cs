@@ -26,7 +26,8 @@ public class MapObjectGenerator : MonoBehaviour
         sideRuleSet.Set(mapValues, enviroment, transform);
         StartCoroutine(sideRuleSet.MakeAll());
         MakeSideObjects();
-        gameOver.continueGame += Continue;
+        if (gameOver != null)
+            gameOver.continueGame += Continue;
     }
 
     private void Update()

@@ -10,6 +10,8 @@ public class MovingObject : MonoBehaviour
 
     public bool side = false;
 
+    public bool ramp = false;
+
     MapValues mapValues;
 
     int sector;
