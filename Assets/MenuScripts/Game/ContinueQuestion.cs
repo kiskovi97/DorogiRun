@@ -5,7 +5,7 @@ public class ContinueQuestion : MonoBehaviour
 {
 
     private static float scale = 1;
-    private int neededAmount;
+    private int neededAmount = 0;
 
     [SerializeField]
     private int baseRevivePrice = 1;
@@ -17,12 +17,15 @@ public class ContinueQuestion : MonoBehaviour
     private Text amountText;
     [SerializeField]
     private Button continueButton;
+    [SerializeField]
+    private Gameover gameOver;
 
     private void Init()
     {
         if(neededAmount == 0)
         {
             neededAmount = baseRevivePrice;
+            gameOver.continueGame += ContinueTheGame;
         }
         scale = Time.timeScale;
         Time.timeScale = 0;
@@ -39,12 +42,12 @@ public class ContinueQuestion : MonoBehaviour
         Init();
     }
 
-    private void OnDisable()
+    private void ContinueTheGame()
     {
         Time.timeScale = scale;
         PlayerData.reviveItemCount -= neededAmount;
         neededAmount *= multiplyValue;
-        if(neededAmount > maxReviveCount)
+        if (neededAmount > maxReviveCount)
         {
             neededAmount = maxReviveCount;
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 956159209}
-  m_IndirectSpecularColor: {r: 0.17089435, g: 0.20607537, b: 0.27449307, a: 1}
+  m_IndirectSpecularColor: {r: 0.17089844, g: 0.20607677, b: 0.27449414, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1442,6 +1442,7 @@ MonoBehaviour:
   maxReviveCount: 100
   amountText: {fileID: 231174373}
   continueButton: {fileID: 854504070}
+  gameOver: {fileID: 1416921962}
 --- !u!1 &890820431
 GameObject:
   m_ObjectHideFlags: 0

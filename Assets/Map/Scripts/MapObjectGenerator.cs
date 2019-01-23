@@ -20,7 +20,6 @@ public class MapObjectGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1f;
         Speed = speed;
         mesh = GetComponent<MapMesh>();
         mapValues = mesh.mapValues;
