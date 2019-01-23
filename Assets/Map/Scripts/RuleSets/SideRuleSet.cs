@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections;
 
 public abstract class SideRuleSet : RuleSet
 {
-    public abstract void MakeAll(float speed);
+    public abstract IEnumerator MakeAll();
 }

@@ -1,14 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class RandomSideRule : SideRuleSet
 {
-    public override void Make(float speed)
+    public override void Make()
     {
         int[] tomb = mapValues.SideSector();
         foreach (int value in tomb)
         {
             MovingObject obj = enviroment.GetSideObject();
-            obj.SetValues(mapValues, value, speed);
+            obj.side = true;
+            obj.SetValues(mapValues, value);
             obj.transform.parent = parent;
             if (value > 0)
             {
@@ -20,7 +22,7 @@ public class RandomSideRule : SideRuleSet
         }
     }
 
-    public override void MakeAll(float speed)
+    public override IEnumerator MakeAll()
     {
         int[] tomb = mapValues.SideSector();
         foreach (int value in tomb)
@@ -28,7 +30,8 @@ public class RandomSideRule : SideRuleSet
             for (float distance = mapValues.StartDistance; distance > mapValues.EndDistance; distance -= length)
             {
                 MovingObject obj = enviroment.GetSideObject();
-                obj.SetValues(mapValues, value, speed);
+                obj.side = true;
+                obj.SetValues(mapValues, value);
                 obj.transform.parent = parent;
                 if (value > 0)
                 {
@@ -38,6 +41,7 @@ public class RandomSideRule : SideRuleSet
                 }
                 obj.SetDistance(distance);
                 obj.Update();
+                yield return null;
             }
         }
     }

@@ -21,7 +21,7 @@ MonoBehaviour:
   - {fileID: 6929581213088663976, guid: b0b2427c421f43c4b9ab5ab5754b1f2c, type: 3}
   - {fileID: 6929581213088663976, guid: c61315b80c7473545a2e0abe9cffc3ae, type: 3}
   sideObjects:
-  - {fileID: 2014267149561799709, guid: 4328d8ffa1fff7347b9a099994004ec1, type: 3}
-  - {fileID: 2014267149561799709, guid: af444431ef4b04d4e9a357879eb17ef7, type: 3}
-  - {fileID: 2014267149561799709, guid: 8c19374a68f898b418951f6497a5a904, type: 3}
   - {fileID: 2014267149561799709, guid: f33e7561c84a2574fbb73e953f16c00a, type: 3}
+  collactables:
+  - obj: {fileID: 1305488780782517391, guid: 75e368ee13541344b8f878a8b1833872, type: 3}
+    frequency: 0.9
