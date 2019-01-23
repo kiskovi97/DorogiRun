@@ -43,9 +43,12 @@ public class MapValues : ScriptableObject
         return curve.GetPointByDistance(distance);
     }
 
-    public Vector3 GetPosition(int sector, float distance)
+    public Vector3 GetPosition(int sector, float distance, float offset = 0.0f)
     {
-        return Sector(sector) + Forward(distance);
+        if (sector < 0)
+            return Sector(sector) + Forward(distance) + right * offset;
+        else 
+            return Sector(sector) + Forward(distance) - right * offset;
     }
 
     public Quaternion GetRotation(float distance)
