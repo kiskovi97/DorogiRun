@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class RandomSideRule : SideRuleSet
 {
-    public override void Make(float speed)
+    public override void Make()
     {
         int[] tomb = mapValues.SideSector();
         foreach (int value in tomb)
         {
             MovingObject obj = enviroment.GetSideObject();
             obj.side = true;
-            obj.SetValues(mapValues, value, speed);
+            obj.SetValues(mapValues, value);
             obj.transform.parent = parent;
             if (value > 0)
             {
@@ -22,7 +22,7 @@ public class RandomSideRule : SideRuleSet
         }
     }
 
-    public override IEnumerator MakeAll(float speed)
+    public override IEnumerator MakeAll()
     {
         int[] tomb = mapValues.SideSector();
         foreach (int value in tomb)
@@ -31,7 +31,7 @@ public class RandomSideRule : SideRuleSet
             {
                 MovingObject obj = enviroment.GetSideObject();
                 obj.side = true;
-                obj.SetValues(mapValues, value, speed);
+                obj.SetValues(mapValues, value);
                 obj.transform.parent = parent;
                 if (value > 0)
                 {

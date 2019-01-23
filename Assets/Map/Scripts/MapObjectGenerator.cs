@@ -8,6 +8,7 @@ public class MapObjectGenerator : MonoBehaviour
     public RuleSets obstacleRules;
     public SideRuleSet sideRuleSet;
     private MapMesh mesh;
+    public static float Speed = 5.0f;
     public float speed = 5.0f;
     public float sideObjectFrequency = 2.0f;
     public float destroyDistance = 60f;
@@ -18,11 +19,12 @@ public class MapObjectGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Speed = speed;
         mesh = GetComponent<MapMesh>();
         mapValues = mesh.mapValues;
         NewRule();
         sideRuleSet.Set(mapValues, enviroment, transform);
-        StartCoroutine(sideRuleSet.MakeAll(speed));
+        StartCoroutine(sideRuleSet.MakeAll());
         MakeSideObjects();
         gameOver.continueGame += Continue;
     }
@@ -37,14 +39,14 @@ public class MapObjectGenerator : MonoBehaviour
         RuleSet ruleSet = obstacleRules.NextRule;
         float length = ruleSet.length;
         ruleSet.Set(mapValues, enviroment, transform);
-        ruleSet.Make(speed);
+        ruleSet.Make();
         Invoke("NewRule", length / speed);
     }
 
     void MakeSideObjects()
     {
         float length = sideRuleSet.length;
-        sideRuleSet.Make(speed);
+        sideRuleSet.Make();
         Invoke("MakeSideObjects", length / speed);
     }
 

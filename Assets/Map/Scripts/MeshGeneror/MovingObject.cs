@@ -20,12 +20,12 @@ public class MovingObject : MonoBehaviour
 
     float speed = 0f;
 
-    public void SetValues(MapValues mapValues, int sector, float speed)
+    public void SetValues(MapValues mapValues, int sector, float plusSpeed = 0)
     {
         this.mapValues = mapValues;
         distance = mapValues.StartDistance;
         this.sector = sector;
-        this.speed = speed;
+        speed = MapObjectGenerator.Speed + plusSpeed;
         minDistance = mapValues.EndDistance;
     }
 
