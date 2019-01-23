@@ -4,8 +4,6 @@ public class Pause : MonoBehaviour
 {
     [SerializeField]
     private GameObject pauseMenu;
-    [SerializeField]
-    private SceneLoader sceneLoader;
 
     private float prevTime = 1f;
 
@@ -20,11 +18,5 @@ public class Pause : MonoBehaviour
     {
         Time.timeScale = prevTime;
         pauseMenu.SetActive(false);
-    }
-
-    public void GoToLobby()
-    {
-        Time.timeScale = 1;
-        sceneLoader.GoToLobby();
     }
 }
