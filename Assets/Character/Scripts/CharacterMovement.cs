@@ -19,6 +19,8 @@ public class CharacterMovement : MonoBehaviour
     [Header("Jump")]
     [SerializeField]
     private float jumpPower;
+    [SerializeField]
+    private float extraFallPower;
 
     [Header("UI")]
     [SerializeField]
@@ -98,6 +100,10 @@ public class CharacterMovement : MonoBehaviour
         {
             MoveRight();
         }
+        if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            MoveDown();
+        }
     }
 
     private void Restart()
@@ -127,7 +133,7 @@ public class CharacterMovement : MonoBehaviour
         //Ground or rampa hit
         else
         {
-            canJump = true;
+            //canJump = true;
             animator.SetBool(jumpCycleAnimation, true);
             animator.SetBool(jumpStartAnimation, false);
         }
@@ -206,6 +212,18 @@ public class CharacterMovement : MonoBehaviour
 
         animator.SetBool(leftMoveAnimation, true);
         lastAnimation = leftMoveAnimation;
+    }
+
+    private void MoveDown()
+    {
+        if (canJump)
+        {
+            Debug.Log("Can jump, so slide!");
+        }
+        else
+        {
+            rigidBody.velocity += new Vector3(0, -extraFallPower, 0);
+        }
     }
 
     private void StartMovement()
@@ -318,4 +336,9 @@ public class CharacterMovement : MonoBehaviour
         Left, Up, Right, Down, Touch
     }
     #endregion
+
+    public void SetJump(bool value)
+    {
+        canJump = value;
+    }
 }
