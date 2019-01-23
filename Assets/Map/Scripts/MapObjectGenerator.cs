@@ -12,6 +12,7 @@ public class MapObjectGenerator : MonoBehaviour
     public float speed = 5.0f;
     public float sideObjectFrequency = 2.0f;
     public float destroyDistance = 60f;
+    public float intensity = 1f;
 
     [SerializeField]
     private Gameover gameOver;
@@ -19,6 +20,7 @@ public class MapObjectGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         Speed = speed;
         mesh = GetComponent<MapMesh>();
         mapValues = mesh.mapValues;
@@ -33,6 +35,8 @@ public class MapObjectGenerator : MonoBehaviour
     private void Update()
     {
         mesh.UpdateAngle(Time.deltaTime * speed);
+        if (Time.timeScale != 0)
+        Time.timeScale += 0.001f * intensity * Time.unscaledDeltaTime;
     }
 
     void NewRule()
