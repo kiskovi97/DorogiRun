@@ -4,5 +4,5 @@ using System.Collections;
 
 public abstract class SideRuleSet : RuleSet
 {
-    public abstract IEnumerator MakeAll(float speed);
+    public abstract IEnumerator MakeAll();
 }

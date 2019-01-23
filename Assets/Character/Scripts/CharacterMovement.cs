@@ -154,6 +154,9 @@ public class CharacterMovement : MonoBehaviour
             case SwipeDirection.Up:
                 Jump();
                 break;
+            case SwipeDirection.Down:
+                MoveDown();
+                break;
             default:
                 break;
         }

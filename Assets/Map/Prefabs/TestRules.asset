@@ -10,10 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d38ccc96977207d46b2dc227487ae5ef, type: 3}
-  m_Name: Obstacles
+  m_Name: TestRules
   m_EditorClassIdentifier: 
   rules:
-  - {fileID: 2169538813710686610, guid: 83145bc90f946e241bf7da2348fb5969, type: 3}
-  - {fileID: 2480508188523923403, guid: 000ade89e5bd4944cad548dffc0ec92f, type: 3}
-  - {fileID: 2924670976936089056, guid: 3f41aa41e6ad58045847abcba7e3f154, type: 3}
   - {fileID: 7742514530917170479, guid: 95cad7363cf03944cabe9bf9e7c8a22d, type: 3}

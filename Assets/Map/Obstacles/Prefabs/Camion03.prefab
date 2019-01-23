@@ -186,6 +186,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 14
+  offset: 0
+  side: 0
+  ramp: 1
 --- !u!1 &7669784411843144366
 GameObject:
   m_ObjectHideFlags: 0
