@@ -7,16 +7,10 @@ public class Gameover : MonoBehaviour
     public event ContinueGame continueGame;
 
     [SerializeField]
-    private SceneLoader sceneLoader;
+    private Fader fader;
 
     public void Continue()
     {
         continueGame();
-    }
-
-    public void GoToLobby()
-    {
-        Time.timeScale = 1;
-        sceneLoader.GoToLobby();
     }
 }

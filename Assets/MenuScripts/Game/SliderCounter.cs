@@ -11,7 +11,7 @@ public class SliderCounter : MonoBehaviour
     private string gameOverScene;
 
     [SerializeField]
-    private SceneLoader sceneLoader;
+    private Fader fader;
 
     [SerializeField]
     private Slider slider;
@@ -39,6 +39,6 @@ public class SliderCounter : MonoBehaviour
 
     public void GoToLobby()
     {
-        sceneLoader.GoToLobbyAndSetScale();
+        fader.StartFadingToLobby();
     }
 }

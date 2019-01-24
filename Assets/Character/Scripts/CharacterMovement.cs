@@ -100,7 +100,7 @@ public class CharacterMovement : MonoBehaviour
         {
             MoveRight();
         }
-        if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             MoveDown();
         }
