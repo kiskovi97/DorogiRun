@@ -111,3 +111,6 @@ MonoBehaviour:
     type: 3}
   speed: 10
   sideObjectFrequency: 4.2
+  destroyDistance: 60
+  intensity: 2
+  gameOver: {fileID: 0}

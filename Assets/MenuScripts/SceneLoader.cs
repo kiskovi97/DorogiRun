@@ -1,46 +1,53 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Collections;
 
 public class SceneLoader : MonoBehaviour
-{
+{ 
     private string LobbyScene = "Lobby";
     private string GameScene = "Game";
     private string MainScene = "Main";
     private string StoreScene = "Store";
 
-    private void LoadScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
+    private string chosed;
 
     public void GoToLobbyAndSetScale()
     {
         Time.timeScale = 1;
-        GoToLobby();
-    }
-
-    public void GoToLobby()
-    {
-        SceneManager.LoadScene(LobbyScene);
+        chosed = LobbyScene;
+        StartCoroutine(GoToSceneAsync());
     }
 
     public void GoToMain()
     {
-        SceneManager.LoadScene(MainScene);
+        chosed = MainScene;
+        StartCoroutine(GoToSceneAsync());
     }
 
     public void GoToGame()
     {
-        SceneManager.LoadScene(GameScene);
+        chosed = GameScene;
+        StartCoroutine(GoToSceneAsync());
     }
 
     public void GoToStore()
     {
-        SceneManager.LoadScene(StoreScene);
+        chosed = StoreScene;
+        StartCoroutine(GoToSceneAsync());
     }      
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    private IEnumerator GoToSceneAsync()
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(chosed);
+        while (!operation.isDone)
+        {
+            //float progress = Mathf.Clamp01(operation.progress / 0.9f); YAGNI :D
+            yield return null;
+        }
     }
 }

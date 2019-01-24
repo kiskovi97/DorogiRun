@@ -100,7 +100,7 @@ public class CharacterMovement : MonoBehaviour
         {
             MoveRight();
         }
-        if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             MoveDown();
         }
@@ -153,6 +153,9 @@ public class CharacterMovement : MonoBehaviour
                 break;
             case SwipeDirection.Up:
                 Jump();
+                break;
+            case SwipeDirection.Down:
+                MoveDown();
                 break;
             default:
                 break;
