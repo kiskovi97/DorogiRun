@@ -13,4 +13,11 @@ public class Gameover : MonoBehaviour
     {
         continueGame();
     }
+
+    public void Skip()
+    {
+        /**
+         * TODO: Dorogi
+         */
+    }
 }
