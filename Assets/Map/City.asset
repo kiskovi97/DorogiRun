@@ -46,5 +46,11 @@ MonoBehaviour:
   - {fileID: 4132878479515316577, guid: 814e8c82cd175f14da23980e2e9ec72f, type: 3}
   - {fileID: 8966224584851358890, guid: dfb5ad060ae719d4aade5e4cbc856cf7, type: 3}
   collactables:
+  - obj: {fileID: 1305488780782517391, guid: e7a4bf98822f0784685a1b1f630671b5, type: 3}
+    frequency: 0.02
+  - obj: {fileID: 1305488780782517391, guid: bd991bca9d9501d448b0904f65137595, type: 3}
+    frequency: 0.02
+  - obj: {fileID: 4845499749396050829, guid: 299313a548efb934c862c53eb950dbeb, type: 3}
+    frequency: 0.02
   - obj: {fileID: 1305488780782517391, guid: 75e368ee13541344b8f878a8b1833872, type: 3}
     frequency: 1

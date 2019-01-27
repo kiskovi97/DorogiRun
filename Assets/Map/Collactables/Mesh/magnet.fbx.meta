@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 386a225bfe76e6643a929454208636f1
+guid: dbda67cdb8124b94b82855d96f9e54c9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
+    2100000: Material.004
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Sphere
+    4300000: Magnet
   externalObjects: {}
   materials:
     importMaterials: 1
