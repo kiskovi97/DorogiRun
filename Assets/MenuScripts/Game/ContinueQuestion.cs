@@ -33,7 +33,6 @@ public class ContinueQuestion : MonoBehaviour
         if(neededAmount > PlayerData.reviveItemCount)
         {
             continueButton.interactable = false;
-            //TODO: color change or something, ty Gergo :(
         }
     }
 
