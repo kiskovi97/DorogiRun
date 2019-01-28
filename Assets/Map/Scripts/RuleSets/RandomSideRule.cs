@@ -25,9 +25,9 @@ public class RandomSideRule : SideRuleSet
     public override IEnumerator MakeAll()
     {
         int[] tomb = mapValues.SideSector();
-        foreach (int value in tomb)
+        for (float distance = mapValues.EndDistance; distance < mapValues.StartDistance; distance += length)
         {
-            for (float distance = mapValues.StartDistance; distance > mapValues.EndDistance; distance -= length)
+            foreach (int value in tomb)
             {
                 MovingObject obj = enviroment.GetSideObject();
                 obj.side = true;
@@ -41,8 +41,8 @@ public class RandomSideRule : SideRuleSet
                 }
                 obj.SetDistance(distance);
                 obj.Update();
-                yield return null;
             }
         }
+        yield return null;
     }
 }
