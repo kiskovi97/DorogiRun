@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 1305488780782517391}
   - component: {fileID: 1850446797637284500}
   m_Layer: 0
-  m_Name: Collactable
+  m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,7 +137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 1
+  offset: 0
   side: 0
+  ramp: 0
 --- !u!65 &1850446797637284500
 BoxCollider:
   m_ObjectHideFlags: 0

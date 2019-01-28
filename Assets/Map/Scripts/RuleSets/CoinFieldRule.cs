@@ -9,8 +9,20 @@ public class CoinFieldRule : RuleSet
     {
         for (int i=0; i<mapValues.SectorNumber; i++)
         {
-            if (i == (mapValues.SectorNumber / 2)) Collactables(i, minLength);
-            else CollactablesLine(i);
+            if (i == (mapValues.SectorNumber / 2)) Coins(i, minLength);
+            else
+            {
+                if (Random.value > 0.9f)
+                {
+                    MovingObject obj = NewCollactable(i, mapValues.StartDistance);
+                    if (obj == null) CoinLine(i);
+                }
+                else
+                {
+                    CoinLine(i);
+                }
+            }
+            
         }
     }
 }

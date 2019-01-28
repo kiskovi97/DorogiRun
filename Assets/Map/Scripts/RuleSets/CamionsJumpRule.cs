@@ -32,11 +32,20 @@ public class CamionsJumpRule : RuleSet
     private float Fork(float distance)
     {
         MovingObject obj = NewBigObstacle(1, mapValues.StartDistance + distance, minLength);
+        ShortCoinLine(1, distance + overLap, jumpHeight + 0.8f);
         float moreDistance = obj.length + distance;
         if (moreDistance > length - 10f) return moreDistance;
         MovingObject obj2;
-        if (Random.value > 0.5f) obj2 = NewBigObstacle(0, mapValues.StartDistance + moreDistance - overLap, minLength);
-        else obj2 = NewBigObstacle(2, mapValues.StartDistance + moreDistance - overLap, minLength);
+        if (Random.value > 0.5f)
+        {
+            obj2 = NewBigObstacle(0, mapValues.StartDistance + moreDistance - overLap, minLength);
+            if (Random.value > 0.9f) NewCollactable(0, mapValues.StartDistance + moreDistance + overLap, jumpHeight + 0.8f);
+        }
+        else
+        {
+            obj2 = NewBigObstacle(2, mapValues.StartDistance + moreDistance - overLap, minLength);
+            if (Random.value > 0.9f) NewCollactable(1, mapValues.StartDistance + moreDistance + overLap, jumpHeight + 0.8f);
+        }
         moreDistance = moreDistance + obj2.length - overLap;
         return moreDistance;
     }

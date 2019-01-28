@@ -12,7 +12,7 @@ public class JumpRule : RuleSet
         {
             if (Random.value > 0.2f)
                 NewSmallObstacle(i, mapValues.StartDistance, maxLength);
-            else Collactables(i, maxLength);
+            else Coins(i, maxLength);
                 
         }
     }
