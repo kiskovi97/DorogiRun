@@ -2017,7 +2017,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bdcfd6436125c9c4c9efacd1074b7574, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3658dd31c84c1984b9996aefc6124e03, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3420,6 +3420,12 @@ PrefabInstance:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 1416921962}
+    - target: {fileID: 5657379282956893548, guid: 95ab5fbbda32257479e769c052e05cc2,
+        type: 3}
+      propertyPath: obstacleRules
+      value: 
+      objectReference: {fileID: 11400000, guid: 578f86fe51d11334e87192a9f9e18d69,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ab5fbbda32257479e769c052e05cc2, type: 3}
 --- !u!43 &1733291027
