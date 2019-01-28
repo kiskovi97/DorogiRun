@@ -9,12 +9,14 @@ public class Score : MonoBehaviour
 
     public Text scoreText;
     public Text coinText;
+    public Text lifeText;
     private float score;
 
     void Start()
     {
         scoreText.text = "0";
         coinText.text = "0";
+        lifeText.text = "" + PlayerData.reviveItemCount;
         score = 0;
         PlayerData.actualGameScore = (int)score;
     }
@@ -25,5 +27,6 @@ public class Score : MonoBehaviour
         PlayerData.actualGameScore = (int)score;
         scoreText.text = "" + (int)score;
         coinText.text = "" + PlayerData.actualCoin;
+        lifeText.text = "" + PlayerData.reviveItemCount;
     }
 }

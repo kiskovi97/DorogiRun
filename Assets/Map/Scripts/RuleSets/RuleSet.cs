@@ -5,8 +5,8 @@ using UnityEngine;
 public abstract class RuleSet : MonoBehaviour
 {
 
-    private static readonly float jumpHeight = 2f;
-    private static readonly int coinNumber = 9;
+    protected static readonly float jumpHeight = 2f;
+    private static readonly int coinNumber = 5;
     private static readonly float jumpLength = 15f;
 
     protected MapValues mapValues;
@@ -68,9 +68,9 @@ public abstract class RuleSet : MonoBehaviour
         return obj;
     }
 
-    protected MovingObject NewCollacltable(int sector, float distance, float height = 0.5f)
+    protected MovingObject NewCoin(int sector, float distance, float height = 0.5f)
     {
-        MovingObject obj = enviroment.GetCollactable();
+        MovingObject obj = enviroment.GetCoin();
         if (obj == null) return null;
         obj.SetValues(mapValues, sector);
         obj.transform.parent = parent;
@@ -80,7 +80,19 @@ public abstract class RuleSet : MonoBehaviour
         return obj;
     }
 
-    protected void Collactables(int sector, float maxLength)
+    protected MovingObject NewCollactable(int sector, float distance, float height = 0.5f)
+    {
+        MovingObject obj = enviroment.GetSpecialCollactabel();
+        if (obj == null) return null;
+        obj.SetValues(mapValues, sector);
+        obj.transform.parent = parent;
+        obj.SetDistance(distance);
+        obj.SetHeight(height);
+        obj.Update();
+        return obj;
+    }
+
+    protected void Coins(int sector, float maxLength)
     {
         float step = jumpLength / coinNumber;
         float jumpStep = jumpHeight / (coinNumber / 2);
@@ -93,17 +105,28 @@ public abstract class RuleSet : MonoBehaviour
             // Kozeppont
             if (index == (coinNumber / 2)) NewSmallObstacle(sector, distance, maxLength);
 
-            NewCollacltable(sector, distance, heightIndex * jumpStep + minHeight);
+            NewCoin(sector, distance, heightIndex * jumpStep + minHeight);
         }
     }
 
-    protected void CollactablesLine(int sector)
+    protected void CoinLine(int sector, float alterDistance = 0f, float height = 0.5f)
     {
         float step = jumpLength / coinNumber;
         for (int index = 0; index < coinNumber; index++)
         {
             float distance = mapValues.StartDistance - step * index + step * (coinNumber / 2);
-            NewCollacltable(sector, distance);
+            NewCoin(sector, distance + alterDistance, height);
+        }
+    }
+
+
+    protected void ShortCoinLine(int sector, float alterDistance = 0f, float height = 0.5f)
+    {
+        float step = jumpLength / (coinNumber - 2) / 2f;
+        for (int index = 0; index < (coinNumber - 2); index++)
+        {
+            float distance = mapValues.StartDistance + step * index;
+            NewCoin(sector, distance + alterDistance, height);
         }
     }
 

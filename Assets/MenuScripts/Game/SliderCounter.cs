@@ -23,16 +23,20 @@ public class SliderCounter : MonoBehaviour
         countingUnit = 1 / timeLimit;
     }
 
+    volatile bool countDown = false;
+
     private void OnEnable()
     {
         slider.value = 1;
+        countDown = true;
     }
 
     void Update()
     {
-        if(slider.value == 0)
+        if(countDown && slider.value == 0)
         {
             GoToLobby();
+            countDown = false;
         }
         slider.value -= Time.unscaledDeltaTime * countingUnit;
     }

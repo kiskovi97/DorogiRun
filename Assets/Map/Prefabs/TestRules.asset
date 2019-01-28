@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestRules
   m_EditorClassIdentifier: 
   rules:
-  - {fileID: 7742514530917170479, guid: 95cad7363cf03944cabe9bf9e7c8a22d, type: 3}
+  - {fileID: 2480508188523923403, guid: 000ade89e5bd4944cad548dffc0ec92f, type: 3}

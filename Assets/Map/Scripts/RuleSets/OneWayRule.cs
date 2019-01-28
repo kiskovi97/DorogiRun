@@ -11,7 +11,13 @@ public class OneWayRule : RuleSet
         int sector = mapValues.RandomSector();
         for (int i=0; i<mapValues.SectorNumber; i++)
         {
-            if (i == sector) NewCollacltable(i, mapValues.StartDistance);
+            if (i == sector)
+            {   
+                if (Random.value > 0.9f)
+                    NewCollactable(i, mapValues.StartDistance);
+                else
+                    ShortCoinLine(i);
+            }
             else NewBigObstacle(i, mapValues.StartDistance, minLength);
         }
     }

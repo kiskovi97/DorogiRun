@@ -6,6 +6,7 @@ public class Enviroment : ScriptableObject
 {
     public MovingObject[] obstacles;
     public MovingObject[] sideObjects;
+    public Coin coin;
     public ObjectFrequency[] collactables;
 
     [System.Serializable]
@@ -86,7 +87,13 @@ public class Enviroment : ScriptableObject
         return null;
     }
 
-    public MovingObject GetCollactable()
+    public MovingObject GetCoin()
+    {
+        if (coin == null) return null;
+        return Instantiate(coin);
+    }
+
+    public MovingObject GetSpecialCollactabel()
     {
         if (collactables == null) return null;
         foreach (ObjectFrequency objectFrequency in collactables)
