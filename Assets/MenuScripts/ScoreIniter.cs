@@ -10,11 +10,17 @@ public class ScoreIniter : MonoBehaviour
     private Text lastScore;
     [SerializeField]
     private Text allCoin;
+    [SerializeField]
+    private StoreRefresher storeRefresher;
 
     void Start()
     {
         FileManager.Save();
         Init();
+        if (storeRefresher != null)
+        {
+            storeRefresher.refresh += Init;
+        }
     }
 
     public void Init()

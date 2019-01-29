@@ -41,7 +41,7 @@ public class MovingObject : MonoBehaviour
         this.height = height;
     }
 
-    public void Update()
+    public virtual void Update()
     {
         distance -= Time.deltaTime * speed;
         if (distance < minDistance) Destroy(this.gameObject, 0.01f);

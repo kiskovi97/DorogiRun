@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterItems))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
 public class CharacterMovement : MonoBehaviour
@@ -34,6 +35,8 @@ public class CharacterMovement : MonoBehaviour
 
     private Animator animator;
 
+    private CharacterItems characterItems;
+
     private bool inMove = false;
     private ChangingDirection directionBetweenLanes;
     private float aimPositionX;
@@ -57,6 +60,7 @@ public class CharacterMovement : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        characterItems = GetComponent<CharacterItems>();
         gameOver.continueGame += Restart;
         originalPosition = transform.position;
         aimPositionX = originalPosition.x;
@@ -128,12 +132,20 @@ public class CharacterMovement : MonoBehaviour
         // Something hit him
         else if (y == 0 && x == 0 && z == -1)
         {
-            continueQuestion.SetActive(true);
+            if (!characterItems.Shielded)
+            {
+                continueQuestion.SetActive(true);
+            }
+            else
+            {
+                collision.gameObject.SetActive(false);
+                Destroy(collision.gameObject);
+                characterItems.ShieldDeactivate();
+            }
         }
         //Ground or rampa hit
         else
         {
-            //canJump = true;
             animator.SetBool(jumpCycleAnimation, true);
             animator.SetBool(jumpStartAnimation, false);
         }
@@ -233,6 +245,11 @@ public class CharacterMovement : MonoBehaviour
     {
         inMove = true;
         StartCoroutine(MoveToPosition());
+    }
+
+    public void SetJump(bool value)
+    {
+        canJump = value;
     }
 
     private void Jump()
@@ -339,9 +356,4 @@ public class CharacterMovement : MonoBehaviour
         Left, Up, Right, Down, Touch
     }
     #endregion
-
-    public void SetJump(bool value)
-    {
-        canJump = value;
-    }
 }
