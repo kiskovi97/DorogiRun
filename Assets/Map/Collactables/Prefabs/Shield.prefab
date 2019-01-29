@@ -86,8 +86,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7762903182788798959}
-  - component: {fileID: 1305488780782517391}
   - component: {fileID: 1850446797637284500}
+  - component: {fileID: 7465977638667048932}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -111,22 +111,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1305488780782517391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5584907004111409879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4186efb57e944d45bdbb24d2716bbab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  length: 1
-  offset: 0
-  side: 0
-  ramp: 0
 --- !u!65 &1850446797637284500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -140,6 +124,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 1, z: 0.7}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &7465977638667048932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584907004111409879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f57b40f5e51b7f4db45aead68cc95b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  length: 4
+  offset: 0
+  side: 0
+  ramp: 0
 --- !u!114 &6534122370034466320
 MonoBehaviour:
   m_ObjectHideFlags: 0

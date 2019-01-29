@@ -12,8 +12,6 @@ public class StoreReviveItem : MonoBehaviour
     [SerializeField]
     private Text priceText;
     [SerializeField]
-    private ScoreIniter scoreIniter;
-    [SerializeField]
     private Button buyButton;
     [SerializeField]
     private Image buttonImage;
@@ -22,9 +20,13 @@ public class StoreReviveItem : MonoBehaviour
     [SerializeField]
     private Color cantAffordItColor;
 
+    [SerializeField]
+    private StoreRefresher storeRefresher;
+
     void Start()
     {
         Init();
+        storeRefresher.refresh += Init;
     }
 
     public void BuyOne()
@@ -32,10 +34,9 @@ public class StoreReviveItem : MonoBehaviour
         PlayerData.allCoin -= price;
         PlayerData.reviveItemCount++;
 
-        Init();
-
-        scoreIniter.Init();
         FileManager.Save();
+
+        storeRefresher.RefreshStore();
     }
 
     private void Init()

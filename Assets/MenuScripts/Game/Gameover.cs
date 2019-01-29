@@ -16,8 +16,6 @@ public class Gameover : MonoBehaviour
 
     public void Skip()
     {
-        /**
-         * TODO: Dorogi
-         */
+        fader.StartFadingToLobby();
     }
 }
