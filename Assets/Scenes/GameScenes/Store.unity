@@ -311,7 +311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00017952226, y: 1.8895621}
+  m_AnchoredPosition: {x: -0.00017952226, y: 0.00014698472}
   m_SizeDelta: {x: 13.3, y: 783.6}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &536655753
@@ -498,6 +498,11 @@ PrefabInstance:
       propertyPath: storeRefresher
       value: 
       objectReference: {fileID: 944600352}
+    - target: {fileID: 8055975708782298772, guid: c2ebb283525241d4aa9e7de55ebce77b,
+        type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 1298878357}
     - target: {fileID: 8055975709258007425, guid: c2ebb283525241d4aa9e7de55ebce77b,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -558,6 +563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700976531093934612, guid: c2ebb283525241d4aa9e7de55ebce77b,
+        type: 3}
+      propertyPath: m_Name
+      value: Level
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2ebb283525241d4aa9e7de55ebce77b, type: 3}
@@ -1007,6 +1017,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054569885}
   m_CullTransparentMesh: 0
+--- !u!114 &1102027606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8435317100801554848, guid: c2ebb283525241d4aa9e7de55ebce77b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8055975709665421836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1282300939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1158,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282300939}
   m_CullTransparentMesh: 0
+--- !u!114 &1298878357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8435317100801554848, guid: c2ebb283525241d4aa9e7de55ebce77b,
+    type: 3}
+  m_PrefabInstance: {fileID: 674985019}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1694544061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1747,7 +1781,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1995901043}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.837733
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2155,6 +2189,11 @@ PrefabInstance:
       propertyPath: storeRefresher
       value: 
       objectReference: {fileID: 944600352}
+    - target: {fileID: 8055975708782298772, guid: c2ebb283525241d4aa9e7de55ebce77b,
+        type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 1102027606}
     - target: {fileID: 8055975709258007425, guid: c2ebb283525241d4aa9e7de55ebce77b,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2215,6 +2254,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700976531093934612, guid: c2ebb283525241d4aa9e7de55ebce77b,
+        type: 3}
+      propertyPath: m_Name
+      value: Level
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2ebb283525241d4aa9e7de55ebce77b, type: 3}
