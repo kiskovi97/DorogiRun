@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 560913203178097662}
   - component: {fileID: 2505489005607321743}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -510,9 +510,10 @@ MonoBehaviour:
   priceText: {fileID: 8055975709143744334}
   priceButton: {fileID: 8055975708654472531}
   buttonImage: {fileID: 8055975708654472556}
+  levelText: {fileID: 8435317100801554848}
   haveEnoughMoneyColor: {r: 1, g: 1, b: 1, a: 1}
   cantAffordItColor: {r: 0, g: 0, b: 0, a: 1}
-  scoreIniter: {fileID: 0}
+  storeRefresher: {fileID: 0}
 --- !u!1 &8055975709143744332
 GameObject:
   m_ObjectHideFlags: 0

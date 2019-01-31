@@ -2989,7 +2989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shield: {fileID: 252521109}
   shieldTimer: {fileID: 2084957056}
-  magnet: {fileID: 0}
+  magnet: {fileID: 3901690064489298415}
   magnetTimer: {fileID: 1553186733}
 --- !u!1 &1495028982
 GameObject:

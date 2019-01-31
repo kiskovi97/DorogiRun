@@ -27,6 +27,9 @@ public class StoreItemIniter : MonoBehaviour
     private Image buttonImage;
 
     [SerializeField]
+    private Text levelText;
+
+    [SerializeField]
     private Color haveEnoughMoneyColor;
 
     [SerializeField]
@@ -81,6 +84,16 @@ public class StoreItemIniter : MonoBehaviour
             priceText.text = "Max";
             priceButton.interactable = false;
         }
+
+        if (PlayerData.shieldLevel < 10)
+        {
+            levelText.text = "Level0" + PlayerData.shieldLevel;
+        }
+        else
+        {
+            levelText.text = "Level" + PlayerData.shieldLevel;
+        }
+
         slider.value = (float)PlayerData.shieldLevel / (float)maxLevel;
     }
 
@@ -108,7 +121,17 @@ public class StoreItemIniter : MonoBehaviour
             priceText.text = "Max";
             priceButton.interactable = false;
         }
-        slider.value = (float)PlayerData.shieldLevel / (float)maxLevel;
+
+        if (PlayerData.magnetLevel < 10)
+        {
+            levelText.text = "Level0" + PlayerData.magnetLevel;
+        }
+        else
+        {
+            levelText.text = "Level" + PlayerData.magnetLevel;
+        }
+
+        slider.value = (float)PlayerData.magnetLevel / (float)maxLevel;
     }
 
     public void BuyOne()
