@@ -9,7 +9,7 @@ public abstract class Collactable : MovingObject
     {
         if (other.tag != "Player") return;
         TriggerFunction(other);
-        Destroy(gameObject, 0.05f);
+        Destroy(gameObject, 0.01f);
     }
 
     protected abstract void TriggerFunction(Collider other);

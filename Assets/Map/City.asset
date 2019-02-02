@@ -52,8 +52,8 @@ MonoBehaviour:
   coin: {fileID: 1305488780782517391, guid: 75e368ee13541344b8f878a8b1833872, type: 3}
   collactables:
   - obj: {fileID: 1474795190608173574, guid: e7a4bf98822f0784685a1b1f630671b5, type: 3}
-    frequency: 1
+    frequency: 0.5
   - obj: {fileID: 7465977638667048932, guid: bd991bca9d9501d448b0904f65137595, type: 3}
-    frequency: 0.1
+    frequency: 0.5
   - obj: {fileID: 4845499749396050829, guid: 299313a548efb934c862c53eb950dbeb, type: 3}
     frequency: 0.1
