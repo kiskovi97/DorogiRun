@@ -6,7 +6,7 @@ public class ItemTimer : MonoBehaviour
     [SerializeField]
     private ItemType itemType = ItemType.shield;
     [SerializeField]
-    private Slider slider;
+    private Image image;
 
     private float amount;
 
@@ -17,7 +17,7 @@ public class ItemTimer : MonoBehaviour
 
     public void Init()
     {
-        slider.value = 1;
+        image.fillAmount = 1;
         amount = GetTime();
     }
 
@@ -37,8 +37,8 @@ public class ItemTimer : MonoBehaviour
 
     void Update()
     {
-        slider.value -= Time.unscaledDeltaTime/amount; 
-        if(slider.value <= 0)
+        image.fillAmount -= Time.unscaledDeltaTime / amount;
+        if (image.fillAmount <= 0)
         {
             gameObject.SetActive(false);
         }
