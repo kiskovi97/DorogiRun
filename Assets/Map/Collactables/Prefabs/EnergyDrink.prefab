@@ -127,6 +127,8 @@ MonoBehaviour:
   offset: 0
   side: 0
   ramp: 0
+  star: {fileID: 6071650749932001676}
+  model: {fileID: 8818557124960420412}
 --- !u!65 &1850446797637284500
 BoxCollider:
   m_ObjectHideFlags: 0

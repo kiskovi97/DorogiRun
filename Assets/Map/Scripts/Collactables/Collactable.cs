@@ -4,11 +4,12 @@ using UnityEngine;
 
 public abstract class Collactable : MovingObject
 {
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag != "Player") return;
         TriggerFunction(other);
-        Destroy(gameObject, 0.01f);
+        Destroy(gameObject, 0.05f);
     }
 
     protected abstract void TriggerFunction(Collider other);

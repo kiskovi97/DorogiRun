@@ -140,6 +140,8 @@ MonoBehaviour:
   offset: 0
   side: 0
   ramp: 0
+  star: {fileID: 6071650749932001676}
+  model: {fileID: 8818557124960420412}
 --- !u!114 &6534122370034466320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +165,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 964c61cbbb8285b47871e1665012d377, type: 3}
       propertyPath: m_Name
       value: EnergyDrink
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 964c61cbbb8285b47871e1665012d377, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 964c61cbbb8285b47871e1665012d377, type: 3}
       propertyPath: m_LocalPosition.x

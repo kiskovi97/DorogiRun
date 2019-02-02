@@ -140,6 +140,9 @@ MonoBehaviour:
   offset: 0
   side: 0
   ramp: 0
+  star: {fileID: 6071650749932001676}
+  model: {fileID: 1933648945990585871}
+  attractSpeed: 5
 --- !u!65 &1850446797637284500
 BoxCollider:
   m_ObjectHideFlags: 0
