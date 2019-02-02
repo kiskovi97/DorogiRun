@@ -44,7 +44,7 @@ public class CamionsJumpRule : RuleSet
         else
         {
             obj2 = NewBigObstacle(2, mapValues.StartDistance + moreDistance - overLap, minLength);
-            if (Random.value > 0.9f) NewCollactable(1, mapValues.StartDistance + moreDistance + overLap, jumpHeight + 0.8f);
+            if (Random.value > 0.9f) NewCollactable(2, mapValues.StartDistance + moreDistance + overLap, jumpHeight + 0.8f);
         }
         moreDistance = moreDistance + obj2.length - overLap;
         return moreDistance;
