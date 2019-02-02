@@ -9,4 +9,16 @@ public class PlayerData
     public static int shieldLevel = 0;
     public static int magnetLevel = 0;
     public static int reviveItemCount = 2;
+
+    public static void ResetAll()
+    {
+        topScore = 0;
+        actualGameScore = 0;
+        allCoin = 110;
+        actualCoin = 0;
+
+        shieldLevel = 0;
+        magnetLevel = 0;
+        reviveItemCount = 2;
+    }
 }

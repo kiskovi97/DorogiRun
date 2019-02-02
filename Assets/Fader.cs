@@ -30,6 +30,12 @@ public class Fader : MonoBehaviour
         }
     }
 
+    public void ResetAll()
+    {
+        PlayerData.ResetAll();
+        FileManager.Save();
+    }
+
     public void StartFadingToGame()
     {
         fade.SetActive(true);

@@ -513,7 +513,7 @@ PrefabInstance:
     - target: {fileID: 4491826189783304627, guid: 44b4c3f7ab626934c887418e01d17f72,
         type: 3}
       propertyPath: m_Name
-      value: Settings
+      value: Reset
       objectReference: {fileID: 0}
     - target: {fileID: 4491826189783304624, guid: 44b4c3f7ab626934c887418e01d17f72,
         type: 3}
@@ -629,12 +629,28 @@ PrefabInstance:
     - target: {fileID: 4491826189783304625, guid: 44b4c3f7ab626934c887418e01d17f72,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4491826189783304625, guid: 44b4c3f7ab626934c887418e01d17f72,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetAll
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491826189783304625, guid: 44b4c3f7ab626934c887418e01d17f72,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491826189783304625, guid: 44b4c3f7ab626934c887418e01d17f72,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1306031075075720978, guid: 163a03a0e26e581458d003a0bd958fcf,
+        type: 3}
     - target: {fileID: 4491826189409926798, guid: 44b4c3f7ab626934c887418e01d17f72,
         type: 3}
       propertyPath: m_Text
-      value: '    Settings'
+      value: '    Reset'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44b4c3f7ab626934c887418e01d17f72, type: 3}
