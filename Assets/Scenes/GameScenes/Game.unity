@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 956159209}
-  m_IndirectSpecularColor: {r: 0.23999465, g: 0.2868987, b: 0.37890777, a: 1}
+  m_IndirectSpecularColor: {r: 0.23998895, g: 0.28689602, b: 0.37890407, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -124,11 +124,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fader
       objectReference: {fileID: 0}
-    - target: {fileID: 1306031075075720976, guid: 163a03a0e26e581458d003a0bd958fcf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1306031075075720977, guid: 163a03a0e26e581458d003a0bd958fcf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -183,57 +178,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1306031075075720978, guid: 163a03a0e26e581458d003a0bd958fcf,
-        type: 3}
-      propertyPath: sceneType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1306031075075720978, guid: 163a03a0e26e581458d003a0bd958fcf,
-        type: 3}
-      propertyPath: fadeInTime
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1306031075075720978, guid: 163a03a0e26e581458d003a0bd958fcf,
-        type: 3}
-      propertyPath: fadeOutTime
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1306031074207318171, guid: 163a03a0e26e581458d003a0bd958fcf,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 191.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1306031074207318171, guid: 163a03a0e26e581458d003a0bd958fcf,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 121.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1306031074207318171, guid: 163a03a0e26e581458d003a0bd958fcf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1306031074207318171, guid: 163a03a0e26e581458d003a0bd958fcf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -9.099976
-      objectReference: {fileID: 0}
-    - target: {fileID: 157885703, guid: 163a03a0e26e581458d003a0bd958fcf, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 157885703, guid: 163a03a0e26e581458d003a0bd958fcf, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 191.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 157885703, guid: 163a03a0e26e581458d003a0bd958fcf, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -9.099976
-      objectReference: {fileID: 0}
-    - target: {fileID: 157885703, guid: 163a03a0e26e581458d003a0bd958fcf, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 121.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163a03a0e26e581458d003a0bd958fcf, type: 3}
@@ -2485,7 +2429,6 @@ GameObject:
   - component: {fileID: 1241177874}
   - component: {fileID: 1241177877}
   - component: {fileID: 1241177876}
-  - component: {fileID: 1241177875}
   m_Layer: 5
   m_Name: Shield
   m_TagString: Untagged
@@ -2513,20 +2456,6 @@ RectTransform:
   m_AnchoredPosition: {x: 107.3, y: 4.3}
   m_SizeDelta: {x: 148.9, y: 148.9}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1241177875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241177873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2b7268e7a35ac4dbe12b0dc5053505, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemType: 0
-  image: {fileID: 1152173315}
 --- !u!114 &1241177876
 MonoBehaviour:
   m_ObjectHideFlags: 0

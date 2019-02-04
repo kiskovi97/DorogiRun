@@ -24,6 +24,7 @@ public class FileManager
         data.topScore = PlayerData.topScore;
         data.allCoin = PlayerData.allCoin;
         data.shieldLevel = PlayerData.shieldLevel;
+        data.magnetLevel = PlayerData.magnetLevel;
         data.reviveItemCount = PlayerData.reviveItemCount;
 
         FileStream fileForSave = File.Create(deviceFileLocation);
@@ -45,6 +46,7 @@ public class FileManager
             PlayerData.topScore = psData.topScore;
             PlayerData.allCoin = psData.allCoin;
             PlayerData.shieldLevel = psData.shieldLevel;
+            PlayerData.magnetLevel = psData.magnetLevel;
             PlayerData.reviveItemCount = psData.reviveItemCount;
         }
         else
@@ -55,6 +57,7 @@ public class FileManager
             data.topScore = 0;
             data.allCoin = 0;
             data.shieldLevel = 0;
+            PlayerData.magnetLevel = 0;
             data.reviveItemCount = 0;
 
             bf.Serialize(file, data);

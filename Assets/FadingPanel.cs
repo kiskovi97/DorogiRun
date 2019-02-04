@@ -8,7 +8,6 @@ public class FadingPanel : MonoBehaviour
     private Fader fader;
     [SerializeField]
     private Image img;
-
     [SerializeField]
     private FadeType fadeType;
 
@@ -25,6 +24,9 @@ public class FadingPanel : MonoBehaviour
         }
         else
         {
+            Color color = img.color;
+            color.a = 1f;
+            img.color = color;
             direction = -1;
             time = fader.FadeInTime;
         }

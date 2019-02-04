@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.9, y: -10}
-  m_SizeDelta: {x: 116.2, y: 86.3}
+  m_AnchoredPosition: {x: -4.5, y: -9.099976}
+  m_SizeDelta: {x: 191.5, y: 121.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &157885706
 CanvasRenderer:
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -125,8 +125,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.9000034, y: -9.9875}
-  m_SizeDelta: {x: 116.2, y: 86.325}
+  m_AnchoredPosition: {x: -4.5, y: -9.099976}
+  m_SizeDelta: {x: 191.5, y: 121.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1306031074207318170
 CanvasRenderer:
@@ -226,8 +226,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fade: {fileID: 1306031074207318175}
-  fadeInTime: 2
-  fadeOutTime: 2
+  fadeInTime: 0.5
+  fadeOutTime: 0.5
   sceneLoader: {fileID: 1204554903851124329}
 --- !u!1 &1306031075184603453
 GameObject:

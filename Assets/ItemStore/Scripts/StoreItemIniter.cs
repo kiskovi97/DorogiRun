@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class StoreItemIniter : MonoBehaviour
 {
+
+    private readonly string maxLevelText = "Max level";
+    private readonly string notMaxLevelText = "Level ";
+    private readonly string maxButtonText = "Max";
+
     private enum StoreItemType
     {
         shield, airplane, magnet
@@ -66,6 +71,8 @@ public class StoreItemIniter : MonoBehaviour
         int maxLevel = shieldData.Length;
         if (maxLevel > PlayerData.shieldLevel)
         {
+            levelText.text = notMaxLevelText + (PlayerData.shieldLevel + 1);
+
             int price = GetShieldDataPrice(PlayerData.shieldLevel);
             priceText.text = "" + price;
 
@@ -81,17 +88,10 @@ public class StoreItemIniter : MonoBehaviour
         }
         else
         {
-            priceText.text = "Max";
+            priceText.text = maxButtonText;
             priceButton.interactable = false;
-        }
 
-        if (PlayerData.shieldLevel < 10)
-        {
-            levelText.text = "Level0" + PlayerData.shieldLevel;
-        }
-        else
-        {
-            levelText.text = "Level" + PlayerData.shieldLevel;
+            levelText.text = maxLevelText;
         }
 
         slider.value = (float)PlayerData.shieldLevel / (float)maxLevel;
@@ -103,7 +103,9 @@ public class StoreItemIniter : MonoBehaviour
         int maxLevel = magnetData.Length;
         if (maxLevel > PlayerData.magnetLevel)
         {
-            int price = GetMagnetDataPrice(PlayerData.shieldLevel);
+            levelText.text = notMaxLevelText + (PlayerData.magnetLevel + 1);
+
+            int price = GetMagnetDataPrice(PlayerData.magnetLevel);
             priceText.text = "" + price;
 
             if (price <= PlayerData.allCoin)
@@ -118,17 +120,9 @@ public class StoreItemIniter : MonoBehaviour
         }
         else
         {
-            priceText.text = "Max";
+            priceText.text = maxButtonText;
             priceButton.interactable = false;
-        }
-
-        if (PlayerData.magnetLevel < 10)
-        {
-            levelText.text = "Level0" + PlayerData.magnetLevel;
-        }
-        else
-        {
-            levelText.text = "Level" + PlayerData.magnetLevel;
+            levelText.text = maxLevelText;
         }
 
         slider.value = (float)PlayerData.magnetLevel / (float)maxLevel;
@@ -143,7 +137,7 @@ public class StoreItemIniter : MonoBehaviour
                 PlayerData.shieldLevel++;
                 break;
             case StoreItemType.magnet:
-                PlayerData.allCoin -= GetMagnetDataPrice(PlayerData.shieldLevel);
+                PlayerData.allCoin -= GetMagnetDataPrice(PlayerData.magnetLevel);
                 PlayerData.magnetLevel++;
                 break;
             default:

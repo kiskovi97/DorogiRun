@@ -360,41 +360,6 @@ CapsuleCollider:
   m_Height: 1.7309492
   m_Direction: 1
   m_Center: {x: 0, y: 0.8194319, z: 0}
---- !u!114 &1490732568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7326886101653400712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c146c76a89a1754ba72ac20bc49c04a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shield: {fileID: 1473768579}
-  shieldTimer: {fileID: 0}
-  magnet: {fileID: 3901690064489298415}
-  magnetTimer: {fileID: 0}
---- !u!114 &1761954223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7326886101653400712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 715942acc04d79b4fa8194d95f0a4533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenLaneChanging: 0.25
-  distanceBetweenLanes: 2
-  lane: 0
-  jumpPower: 10
-  extraFallPower: 10
-  continueQuestion: {fileID: 0}
-  gameOver: {fileID: 0}
 --- !u!82 &8602268195038495371
 AudioSource:
   m_ObjectHideFlags: 0
@@ -491,6 +456,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1490732568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7326886101653400712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c146c76a89a1754ba72ac20bc49c04a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shield: {fileID: 1473768579}
+  shieldTimer: {fileID: 0}
+  magnet: {fileID: 3901690064489298415}
+  magnetTimer: {fileID: 0}
+--- !u!114 &1761954223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7326886101653400712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715942acc04d79b4fa8194d95f0a4533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenLaneChanging: 0.25
+  distanceBetweenLanes: 2
+  lane: 0
+  jumpPower: 9
+  extraFallPower: 10
+  continueQuestion: {fileID: 0}
+  gameOver: {fileID: 0}
 --- !u!1001 &4207410445672315610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -562,11 +562,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6227673372310233040, guid: 091412f8de1b9c14b9064abc1bb78687,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 091412f8de1b9c14b9064abc1bb78687, type: 3}

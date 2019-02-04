@@ -37,6 +37,11 @@ public class ItemTimer : MonoBehaviour
 
     void Update()
     {
+        if(Time.timeScale == 0)
+        {
+            return;
+        }
+
         image.fillAmount -= Time.unscaledDeltaTime / amount;
         if (image.fillAmount <= 0)
         {
