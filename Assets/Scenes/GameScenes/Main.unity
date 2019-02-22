@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23998895, g: 0.28689602, b: 0.37890407, a: 1}
+  m_IndirectSpecularColor: {r: 0.23999465, g: 0.2868987, b: 0.37890777, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -458,8 +458,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -398.99747, y: -96.6}
-  m_SizeDelta: {x: 797.1, y: 169.29999}
+  m_AnchoredPosition: {x: -449.65, y: -221}
+  m_SizeDelta: {x: 899.3, y: 166.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &999782621
 MonoBehaviour:
@@ -483,18 +483,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 75
+    m_FontSize: 90
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 100
+    m_MaxSize: 300
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '   Johnny Run'
+  m_Text: ' Johnny Run'
 --- !u!222 &999782622
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -812,8 +812,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 58, y: -206}
-  m_SizeDelta: {x: 797.1, y: 201.8}
+  m_AnchoredPosition: {x: 34.4, y: -150.8}
+  m_SizeDelta: {x: 963.3, y: 381}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1521639728
 MonoBehaviour:
@@ -828,14 +828,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.032451153, g: 0, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 68be2a3a976fb7e4cb62f4b59ebc608e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9953a9e9a3d59fa47ac46a8503bb6d09, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
