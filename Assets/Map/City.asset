@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61525d57215f6cf46a4504b5a5571ff7, type: 3}
+  m_Name: City
+  m_EditorClassIdentifier: 
+  obstacles:
+  - {fileID: 6929581213088663976, guid: 14776431b8616a740b2748d7c1a6c51d, type: 3}
+  - {fileID: 6929581213088663976, guid: 9cdd5356f14190d45943bd0070766d39, type: 3}
+  - {fileID: 6929581213088663976, guid: 3d09ec74005090346977134a39c043a8, type: 3}
+  - {fileID: 6929581213088663976, guid: 43295de8d4596744982d3241e72f9e1c, type: 3}
+  - {fileID: 6929581213088663976, guid: 3f7783d74393ba54b878acfa066309fe, type: 3}
+  - {fileID: 6929581213088663976, guid: b0b2427c421f43c4b9ab5ab5754b1f2c, type: 3}
+  - {fileID: 6929581213088663976, guid: c61315b80c7473545a2e0abe9cffc3ae, type: 3}
+  - {fileID: 6929581213088663976, guid: 9cdd5356f14190d45943bd0070766d39, type: 3}
+  - {fileID: 6929581213088663976, guid: 14776431b8616a740b2748d7c1a6c51d, type: 3}
+  - {fileID: 6929581213088663976, guid: 7ff54a6f774a2424d937f5f36047fb62, type: 3}
+  - {fileID: 6929581213088663976, guid: 8b327372d8efaed48a6274988492ad8a, type: 3}
+  sideObjects:
+  - {fileID: 2014267149561799709, guid: f33e7561c84a2574fbb73e953f16c00a, type: 3}
+  - {fileID: 7065753752129709417, guid: d5bafab398872db4a8f0c724fa50864d, type: 3}
+  - {fileID: 6899591340306233209, guid: d46a274c6650e7d46aad144a75287079, type: 3}
+  - {fileID: 1114237368802579413, guid: 4399205fcb8fb5d4bbaf536f0a04cf28, type: 3}
+  - {fileID: 7816087854512238196, guid: d7504139d9eee5c4caa2cf9de47e57ba, type: 3}
+  - {fileID: 66045918354666, guid: ab937a8d464016a4eacb7574f2106771, type: 3}
+  - {fileID: 318593131962393378, guid: 6ed2dd175473d7941bf3e2d6a091fea2, type: 3}
+  - {fileID: 1513951405999850660, guid: b0cee0079de5e634683d5b252948d104, type: 3}
+  - {fileID: 6512086047803457713, guid: 7b434c8a20052704bba4f88ca3c76343, type: 3}
+  - {fileID: 1167201845458773946, guid: 939c2cd8e44fdc649ba94ffaba82cd66, type: 3}
+  - {fileID: 3599279990377654453, guid: 207a8b270d70c0b4b93ab89eaffbbba9, type: 3}
+  - {fileID: 1255903650844467108, guid: 050239a3a19d59f48b75fd23d63b36dd, type: 3}
+  - {fileID: 8570059067858356938, guid: d6384cf2d1fd4ec42939d5a319dd23c3, type: 3}
+  - {fileID: 7868375739807174876, guid: 649419e3b99d8044fb38ebfeb680328e, type: 3}
+  - {fileID: 6823280847889154760, guid: 1fb0af1d025a2b14aad53577ab378e1a, type: 3}
+  - {fileID: 2482396522616314984, guid: 6b71e2b3d44fc7c42a6b52f3f9892b38, type: 3}
+  - {fileID: 7675379589818771756, guid: adc8c6d944639fc4f8b9beb62f945a00, type: 3}
+  - {fileID: 4145431588012809592, guid: 3aabd61d180085d4fafea3ae151cbd01, type: 3}
+  - {fileID: 4145431588012809592, guid: 3aabd61d180085d4fafea3ae151cbd01, type: 3}
+  - {fileID: 5423342614744142323, guid: 1d82055437170f44fabf22a3424695b3, type: 3}
+  - {fileID: 749212418089340066, guid: 66a0c55dd5335a141ad064dd2d2d37d5, type: 3}
+  - {fileID: 2510915986528260869, guid: c5107d0d29ec0174d8a8b3fec41f8837, type: 3}
+  - {fileID: 4132878479515316577, guid: 814e8c82cd175f14da23980e2e9ec72f, type: 3}
+  - {fileID: 8966224584851358890, guid: dfb5ad060ae719d4aade5e4cbc856cf7, type: 3}
+  coin: {fileID: 1305488780782517391, guid: 75e368ee13541344b8f878a8b1833872, type: 3}
+  collactables:
+  - obj: {fileID: 1474795190608173574, guid: e7a4bf98822f0784685a1b1f630671b5, type: 3}
+    frequency: 0.5
+  - obj: {fileID: 7465977638667048932, guid: bd991bca9d9501d448b0904f65137595, type: 3}
+    frequency: 0.5
+  - obj: {fileID: 4845499749396050829, guid: 299313a548efb934c862c53eb950dbeb, type: 3}
+    frequency: 0.1
