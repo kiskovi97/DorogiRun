@@ -39,7 +39,7 @@ public class PlayerData
     {
         topScore = 0;
         actualGameScore = 0;
-        allCoin = 100000;
+        allCoin = 110;
         actualCoin = 0;
 
         shieldLevel = 0;
