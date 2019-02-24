@@ -8,4 +8,5 @@ public class Data
     public int shieldLevel;
     public int magnetLevel;
     public int reviveItemCount;
+    public float volume;
 }

@@ -9,6 +9,31 @@ public class PlayerData
     public static int shieldLevel = 0;
     public static int magnetLevel = 0;
     public static int reviveItemCount = 2;
+    public static float volume;
+
+    public static void SetFromData(Data data)
+    {
+        topScore = data.topScore;
+        allCoin = data.allCoin;
+        shieldLevel = data.shieldLevel;
+        magnetLevel = data.magnetLevel;
+        reviveItemCount = data.reviveItemCount;
+        volume = data.volume;
+    }
+
+    public static Data GetData()
+    {
+        Data data = new Data
+        {
+            topScore = topScore,
+            allCoin = allCoin,
+            shieldLevel = shieldLevel,
+            magnetLevel = magnetLevel,
+            reviveItemCount = reviveItemCount,
+            volume = volume
+        };
+        return data;
+    }
 
     public static void ResetAll()
     {
@@ -20,5 +45,6 @@ public class PlayerData
         shieldLevel = 0;
         magnetLevel = 0;
         reviveItemCount = 2;
+        volume = 1f;
     }
 }

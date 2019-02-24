@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class FileManager
 {
-    static private string fileName = "RunGameData";
+    private static readonly string fileName = "RunGameData";
 
     public static void Save()
     {
@@ -17,16 +17,7 @@ public class FileManager
         string deviceFileLocation = Application.persistentDataPath + "/" + fileName;
 
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Open(deviceFileLocation, FileMode.Open);
-        Data data = (Data)bf.Deserialize(file);
-        file.Close();
-
-        data.topScore = PlayerData.topScore;
-        data.allCoin = PlayerData.allCoin;
-        data.shieldLevel = PlayerData.shieldLevel;
-        data.magnetLevel = PlayerData.magnetLevel;
-        data.reviveItemCount = PlayerData.reviveItemCount;
-
+        Data data = PlayerData.GetData();
         FileStream fileForSave = File.Create(deviceFileLocation);
         bf.Serialize(fileForSave, data);
         fileForSave.Close();
@@ -42,24 +33,14 @@ public class FileManager
             FileStream file = File.Open(deviceFileLocation, FileMode.Open);
             Data psData = (Data)bf.Deserialize(file);
             file.Close();
-
-            PlayerData.topScore = psData.topScore;
-            PlayerData.allCoin = psData.allCoin;
-            PlayerData.shieldLevel = psData.shieldLevel;
-            PlayerData.magnetLevel = psData.magnetLevel;
-            PlayerData.reviveItemCount = psData.reviveItemCount;
+            PlayerData.SetFromData(psData);
         }
         else
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(deviceFileLocation, FileMode.Create);
-            Data data = new Data();
-            data.topScore = 0;
-            data.allCoin = 0;
-            data.shieldLevel = 0;
-            PlayerData.magnetLevel = 0;
-            data.reviveItemCount = 0;
-
+            PlayerData.ResetAll();
+            Data data = PlayerData.GetData();
             bf.Serialize(file, data);
             file.Close();
         }

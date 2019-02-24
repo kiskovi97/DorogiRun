@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Fader : MonoBehaviour
 {
@@ -11,6 +12,18 @@ public class Fader : MonoBehaviour
     private float fadeOutTime;
     [SerializeField]
     private SceneLoader sceneLoader;
+    [SerializeField]
+    private GameObject settingsMenu;
+    [SerializeField]
+    private Slider volume;
+
+    public void Start()
+    {
+        if (volume != null)
+        {
+            volume.value = PlayerData.volume;
+        }
+    }
 
     private SceneType sceneType;
 
@@ -30,10 +43,22 @@ public class Fader : MonoBehaviour
         }
     }
 
+    public void SettingsMenuOpen()
+    {
+        settingsMenu.SetActive(true);
+    }
+
+    public void SettingsMenuClose()
+    {
+        PlayerData.volume = volume.value;
+        settingsMenu.SetActive(false);
+    }
+
     public void ResetAll()
     {
         PlayerData.ResetAll();
         FileManager.Save();
+        volume.value = PlayerData.volume;
     }
 
     public void StartFadingToGame()
