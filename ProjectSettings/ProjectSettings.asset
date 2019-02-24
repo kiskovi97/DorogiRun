@@ -154,7 +154,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.igorodcavok.JohnnyRun
   buildNumber: {}
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -242,8 +242,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: D:/work/KeyStores/user.keystore
-  AndroidKeyaliasName: johnnyrun
+  AndroidKeystoreName: D:/work/DorogiRun/johnyrun.keystore
+  AndroidKeyaliasName: 
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
