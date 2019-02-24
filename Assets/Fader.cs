@@ -59,6 +59,7 @@ public class Fader : MonoBehaviour
         PlayerData.ResetAll();
         FileManager.Save();
         volume.value = PlayerData.volume;
+        SettingsMenuClose();
     }
 
     public void StartFadingToGame()
