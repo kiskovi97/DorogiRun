@@ -17,12 +17,23 @@ public class Fader : MonoBehaviour
     [SerializeField]
     private Slider volume;
 
+    public AudioClip clip;
+
     public void Start()
     {
         if (volume != null)
         {
             volume.value = PlayerData.volume;
         }
+
+        volume.onValueChanged.AddListener(VolumeChanged);
+    }
+
+    private void VolumeChanged(float volume)
+    {
+        PlayerData.volume = volume;
+        if (clip!= null)
+        AudioSource.PlayClipAtPoint(clip, Vector3.zero, PlayerData.volume);
     }
 
     private SceneType sceneType;

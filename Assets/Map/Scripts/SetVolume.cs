@@ -6,8 +6,9 @@ public class SetVolume : MonoBehaviour
 {
 
     public new AudioSource audio;
+
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
         audio.volume = PlayerData.volume;
     }
